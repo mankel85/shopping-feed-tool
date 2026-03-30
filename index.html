@@ -95,7 +95,6 @@
 
     .mini-btn,
     .ghost-link,
-    button,
     .button {
       cursor: pointer;
       transition: 0.15s ease;
@@ -115,8 +114,7 @@
 
     .mini-btn:hover,
     .ghost-link:hover,
-    .button:hover,
-    button:hover {
+    .button:hover {
       background: #f8fafc;
     }
 
@@ -536,6 +534,16 @@
       line-height: 1.6;
     }
 
+    .list-notice {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     .hidden { display: none !important; }
 
     @media (max-width: 1180px) {
@@ -688,6 +696,7 @@
                 <h3>Vali rida kontrollimiseks</h3>
               </div>
             </div>
+            <div id="productListNotice" class="list-notice"></div>
             <div class="product-list-wrap" id="productList"></div>
           </section>
 
@@ -706,6 +715,7 @@
                   <h3>Feedi ülesed tähelepanekud</h3>
                 </div>
               </div>
+              <div id="issuesNotice" class="list-notice" style="margin-bottom: 14px;"></div>
               <div class="table-wrap">
                 <table>
                   <thead>
@@ -744,7 +754,6 @@
   </div>
 
   <script>
-    const MERCHANT_CENTER_SPEC_URL = "https://support.google.com/merchants/answer/7052112?hl=en";
     const SAMPLE_FEED = `id\ttitle\tdescription\tlink\timage_link\tavailability\tprice\tbrand\tgtin\tcondition\tgoogle_product_category\tsale_price\tshipping
 SKU-1001\tNike Pegasus 41 meeste jooksujalatsid sinine 42\tKerge igapäevane jooksujalats hingava võrkkangast pealise, ReactX-vahu, kummist välistalla ja neutraalse sammuga maanteetrennide jaoks.\thttps://example.com/products/nike-pegasus-41-blue-42\thttps://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80\tin_stock\t129.99 EUR\tNike\t0196608744102\tnew\tApparel & Accessories > Shoes\t109.99 EUR\tEE:::5.99 EUR
 SKU-1002\tKäsitöö keraamiline kruus 350 ml metsaroheline\tKäsitsi vormitud keraamiline kruus mati glasuuriga, mahutavus umbes 350 ml, nõudepesumasinakindel, valmistatud väikestes partiides Eestis.\thttps://example.com/products/ceramic-mug-forest-green\thttps://images.unsplash.com/photo-1514228742587-6b1558fcf93a?w=800&auto=format&fit=crop&q=80\tin_stock\t24.00 EUR\tStudio North\\t\tnew\tHome & Garden > Kitchen & Dining > Tableware > Drinkware > Mugs\t\tEE:::4.50 EUR
@@ -764,12 +773,15 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
         <path d="M156 438l104-112 80 84 56-56 88 84H156z" fill="#cbd5e1"/>
       </svg>
     `);
+    const MAX_VISIBLE_PRODUCTS = 100;
+    const MAX_VISIBLE_ISSUES = 500;
 
     const state = {
       rawFeed: SAMPLE_FEED,
       lastSource: "Näidisfeed",
       parsed: { rows: [], format: "unknown" },
       products: [],
+      allIssues: [],
       selectedIndex: 0,
       parseError: "",
     };
@@ -789,10 +801,12 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       statErrors: document.getElementById("statErrors"),
       statWarnings: document.getElementById("statWarnings"),
       statReady: document.getElementById("statReady"),
+      productListNotice: document.getElementById("productListNotice"),
       productList: document.getElementById("productList"),
       shoppingPreview: document.getElementById("shoppingPreview"),
       organicPreview: document.getElementById("organicPreview"),
       diagnosticsCard: document.getElementById("diagnosticsCard"),
+      issuesNotice: document.getElementById("issuesNotice"),
       issuesTableBody: document.getElementById("issuesTableBody"),
     };
 
@@ -1150,10 +1164,9 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
         : "Selle sihtriigi puhul keskendub tööriist feedi põhistruktuurile ja atribuutide kvaliteedile. Turu käivitumisel võivad lisanduda ka turupõhised reeglid.";
     }
 
-    function renderStats(products, format) {
-      const issues = groupIssuesByProduct(products);
-      const errors = issues.filter((issue) => issue.severity === "error").length;
-      const warnings = issues.filter((issue) => issue.severity === "warning").length;
+    function renderStats(products, format, allIssues) {
+      const errors = allIssues.filter((issue) => issue.severity === "error").length;
+      const warnings = allIssues.filter((issue) => issue.severity === "warning").length;
       const readyCount = products.filter((product) => summarizeSeverity(product.issues).errors === 0).length;
 
       els.statProducts.textContent = products.length;
@@ -1164,12 +1177,25 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
     }
 
     function renderProductList(products) {
+      const visibleProducts = products.slice(0, MAX_VISIBLE_PRODUCTS);
+
       if (!products.length) {
+        els.productListNotice.textContent = "Ühtegi toodet ei loetud sisse.";
         els.productList.innerHTML = '<div class="empty-box muted">Ühtegi rida ei loetud veel sisse. Laadi üles feed või kleebi sisu.</div>';
         return;
       }
 
-      els.productList.innerHTML = products.map((product, index) => {
+      if (state.selectedIndex >= visibleProducts.length) {
+        state.selectedIndex = 0;
+      }
+
+      if (products.length > MAX_VISIBLE_PRODUCTS) {
+        els.productListNotice.textContent = `Feedis kokku ${products.length} toodet, kuvatakse esimesed ${MAX_VISIBLE_PRODUCTS}.`; 
+      } else {
+        els.productListNotice.textContent = `Feedis kokku ${products.length} toodet, kuvatakse kõik tooted.`;
+      }
+
+      els.productList.innerHTML = visibleProducts.map((product, index) => {
         const summary = summarizeSeverity(product.issues);
         const tone = statusTone(summary.errors, summary.warnings);
         const toneClass = tone === "ready" ? "success" : tone === "review" ? "warn" : "error";
@@ -1179,7 +1205,7 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
             <div class="product-meta" style="font-size:12px; margin-top:4px;">${escapeHtml(cleanValue(product.id) || `Rida ${product.__row || index + 1}`)}</div>
             <div class="product-list" style="margin-top:10px; gap:8px;">
               <span class="status-pill ${index === state.selectedIndex ? "neutral" : toneClass}">${escapeHtml(toneLabel(tone))}</span>
-              <span class="status-pill ${index === state.selectedIndex ? "neutral" : "neutral"}">${summary.errors} viga · ${summary.warnings} hoiatust</span>
+              <span class="status-pill neutral">${summary.errors} viga · ${summary.warnings} hoiatust</span>
             </div>
           </div>
         `;
@@ -1297,14 +1323,22 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       `;
     }
 
-    function renderIssuesTable(products) {
-      const issues = groupIssuesByProduct(products);
-      if (!issues.length) {
+    function renderIssuesTable(allIssues) {
+      const visibleIssues = allIssues.slice(0, MAX_VISIBLE_ISSUES);
+
+      if (!allIssues.length) {
+        els.issuesNotice.textContent = "Probleeme ei leitud.";
         els.issuesTableBody.innerHTML = '<tr><td colspan="4" class="muted">Diagnostika kirjeid veel ei ole.</td></tr>';
         return;
       }
 
-      els.issuesTableBody.innerHTML = issues.map((issue) => `
+      if (allIssues.length > MAX_VISIBLE_ISSUES) {
+        els.issuesNotice.textContent = `Feedis kokku ${allIssues.length} probleemi, tabelis kuvatakse esimesed ${MAX_VISIBLE_ISSUES}.`;
+      } else {
+        els.issuesNotice.textContent = `Feedis kokku ${allIssues.length} probleemi, tabelis kuvatakse kõik probleemid.`;
+      }
+
+      els.issuesTableBody.innerHTML = visibleIssues.map((issue) => `
         <tr>
           <td>${severityBadge(issue.severity)}</td>
           <td>${escapeHtml(issue.field)}</td>
@@ -1335,16 +1369,18 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       renderParseError();
 
       const products = state.products;
-      renderStats(products, state.parsed.format || "unknown");
+      const allIssues = state.allIssues;
+
+      renderStats(products, state.parsed.format || "unknown", allIssues);
       renderProductList(products);
-      renderIssuesTable(products);
+      renderIssuesTable(allIssues);
 
       const selectedProduct = products[state.selectedIndex] || null;
       renderShoppingPreview(selectedProduct);
       renderOrganicPreview(selectedProduct);
       renderDiagnostics(selectedProduct);
 
-      els.downloadCsvBtn.disabled = !groupIssuesByProduct(products).length;
+      els.downloadCsvBtn.disabled = !allIssues.length;
       els.downloadCsvBtn.style.opacity = els.downloadCsvBtn.disabled ? "0.5" : "1";
     }
 
@@ -1353,21 +1389,22 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
         state.parseError = "";
         state.parsed = parseFeed(state.rawFeed);
         state.products = buildProducts(state.parsed.rows, els.targetCountry.value);
+        state.allIssues = groupIssuesByProduct(state.products);
         if (state.selectedIndex >= state.products.length) state.selectedIndex = 0;
       } catch (error) {
         state.parseError = error && error.message ? error.message : "Feed'i ei saanud töödelda.";
         state.parsed = { rows: [], format: "unknown" };
         state.products = [];
+        state.allIssues = [];
         state.selectedIndex = 0;
       }
       render();
     }
 
     function downloadDiagnosticsCsv() {
-      const issues = groupIssuesByProduct(state.products);
       const rows = [
         ["severity", "field", "product_id", "title", "message"],
-        ...issues.map((issue) => [issue.severity, issue.field, issue.productId, issue.title, issue.message]),
+        ...state.allIssues.map((issue) => [issue.severity, issue.field, issue.productId, issue.title, issue.message]),
       ];
       const csv = rows
         .map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(","))
@@ -1399,6 +1436,7 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       state.rawFeed = SAMPLE_FEED;
       state.lastSource = "Näidisfeed";
       els.feedInput.value = SAMPLE_FEED;
+      state.selectedIndex = 0;
       recalc();
     });
 
@@ -1409,6 +1447,7 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       state.rawFeed = text;
       state.lastSource = file.name;
       els.feedInput.value = text;
+      state.selectedIndex = 0;
       recalc();
     });
 
