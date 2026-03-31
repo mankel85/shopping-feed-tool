@@ -130,28 +130,28 @@
     <section class="hero">
       <div>
         <div class="badge-row">
-          <span class="pill">Google Shopping feed preview and validation</span>
+          <span class="pill">Google Shopping feedi eelvaade ja valideerimine</span>
         </div>
-        <h1>Check a product feed and preview how products may appear in Google’s paid and organic listings.</h1>
-        <p>Upload a feed file or paste CSV, TSV, or XML content. The tool checks core Merchant Center attributes, highlights likely compliance issues, and shows realistic Shopping and organic result previews.</p>
+        <h1>Kontrolli toote feedi ja vaata, kuidas tooted võivad Google’i tasulistes ja orgaanilistes tulemustes välja näha.</h1>
+        <p>Laadi üles feedi fail või kleebi CSV-, TSV- või XML-sisu. Tööriist kontrollib Merchant Centeri põhiatribuute, toob esile tõenäolised vastavusprobleemid ja kuvab realistliku Shoppingu ning orgaanilise tulemuse eelvaate.</p>
         <div class="chips" style="margin-top: 18px;">
-          <span class="chip">File upload</span>
+          <span class="chip">Faili üleslaadimine</span>
           <span class="chip">CSV / TSV / XML</span>
-          <span class="chip">Paid + organic preview</span>
+          <span class="chip">Tasuline + orgaaniline eelvaade</span>
         </div>
         <div class="actions" style="margin-top: 20px;">
-          <a class="ghost-link" href="https://support.google.com/merchants/answer/7052112?hl=en" target="_blank" rel="noreferrer">Merchant Center technical specification</a>
+          <a class="ghost-link" href="https://support.google.com/merchants/answer/7052112?hl=en" target="_blank" rel="noreferrer">Merchant Centeri tehniline spetsifikatsioon</a>
         </div>
       </div>
       <div class="hero-side">
-        <div class="eyebrow">What this version does well</div>
+        <div class="eyebrow">Mida see versioon hästi teeb</div>
         <div class="suggestion-grid" style="margin-top: 0;">
-          <div class="suggestion-item">Reads XML, CSV, and TSV feeds</div>
-          <div class="suggestion-item">Checks required and conditional attributes</div>
-          <div class="suggestion-item">Finds duplicate IDs and format issues</div>
-          <div class="suggestion-item">Shows Shopping-style and organic previews</div>
+          <div class="suggestion-item">Loeb XML-, CSV- ja TSV-feede</div>
+          <div class="suggestion-item">Kontrollib kohustuslikke ja tingimuslikke atribuute</div>
+          <div class="suggestion-item">Leiab duplikaat-ID-d ja vorminguprobleemid</div>
+          <div class="suggestion-item">Kuvab Shoppingu ja orgaanilise tulemuse eelvaate</div>
         </div>
-        <div class="subtle-note">This tool does not support downloading feeds directly from a URL. Use file upload or paste the feed content manually.</div>
+        <div class="subtle-note">Tööriist ei toeta feedi allalaadimist URL-ilt. Kasuta faili üleslaadimist või kleebi feedi sisu käsitsi.</div>
       </div>
     </section>
 
@@ -160,35 +160,35 @@
         <section class="panel">
           <div class="panel-heading">
             <div>
-              <div class="eyebrow">Feed input</div>
-              <h2>Upload a file or paste content</h2>
+              <div class="eyebrow">Feedi sisend</div>
+              <h2>Laadi fail üles või kleebi sisu</h2>
             </div>
           </div>
           <div class="stack">
             <div>
-              <label class="label" for="feedFile">Upload feed file</label>
+              <label class="label" for="feedFile">Laadi feedi fail üles</label>
               <input id="feedFile" type="file" accept=".txt,.tsv,.csv,.xml,.rss,.atom" />
             </div>
             <div>
-              <label class="label" for="targetCountry">Target country</label>
+              <label class="label" for="targetCountry">Sihtriik</label>
               <select id="targetCountry">
-                <option value="EE">Estonia (EE)</option>
-                <option value="LV">Latvia (LV)</option>
-                <option value="LT">Lithuania (LT)</option>
-                <option value="FI">Finland (FI)</option>
-                <option value="SE">Sweden (SE)</option>
-                <option value="DE">Germany (DE)</option>
-                <option value="PL">Poland (PL)</option>
-                <option value="GB">United Kingdom (GB)</option>
-                <option value="US">United States (US)</option>
+                <option value="EE">Eesti (EE)</option>
+                <option value="LV">Läti (LV)</option>
+                <option value="LT">Leedu (LT)</option>
+                <option value="FI">Soome (FI)</option>
+                <option value="SE">Rootsi (SE)</option>
+                <option value="DE">Saksamaa (DE)</option>
+                <option value="PL">Poola (PL)</option>
+                <option value="GB">Ühendkuningriik (GB)</option>
+                <option value="US">Ameerika Ühendriigid (US)</option>
               </select>
             </div>
             <div>
               <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
-                <label class="label" for="feedInput" style="margin:0;">Paste feed content</label>
-                <button type="button" class="mini-btn" id="loadSampleBtn">Load sample</button>
+                <label class="label" for="feedInput" style="margin:0;">Kleebi feedi sisu</label>
+                <button type="button" class="mini-btn" id="loadSampleBtn">Lae näidis</button>
               </div>
-              <textarea id="feedInput" placeholder="Paste CSV, TSV, or XML feed content here..."></textarea>
+              <textarea id="feedInput" placeholder="Kleebi siia CSV-, TSV- või XML-feedi sisu..."></textarea>
             </div>
           </div>
         </section>
@@ -196,16 +196,16 @@
         <section class="panel stack">
           <div class="panel-heading" style="margin-bottom:0;">
             <div>
-              <div class="eyebrow">Source summary</div>
-              <h3 id="sourceName">Sample feed</h3>
+              <div class="eyebrow">Allika kokkuvõte</div>
+              <h3 id="sourceName">Näidisfeed</h3>
             </div>
             <span class="pill" id="sourceFormat">TSV</span>
           </div>
           <div class="info-box" id="countryNotice"></div>
           <div class="error-box hidden" id="parseError"></div>
           <div class="actions">
-            <button type="button" class="button" id="downloadCsvBtn">Export diagnostics CSV</button>
-            <a class="ghost-link" href="https://support.google.com/merchants/answer/7052112?hl=en" target="_blank" rel="noreferrer">Open technical specification</a>
+            <button type="button" class="button" id="downloadCsvBtn">Ekspordi diagnostika CSV</button>
+            <a class="ghost-link" href="https://support.google.com/merchants/answer/7052112?hl=en" target="_blank" rel="noreferrer">Ava tehniline spetsifikatsioon</a>
           </div>
         </section>
       </div>
@@ -213,24 +213,24 @@
       <div class="main-right">
         <section class="stats">
           <div class="stat-card">
-            <div class="eyebrow">Products parsed</div>
+            <div class="eyebrow">Loetud tooted</div>
             <div class="value" id="statProducts">0</div>
-            <div class="meta" id="statProductsMeta">Source format: unknown</div>
+            <div class="meta" id="statProductsMeta">Allika vorming: unknown</div>
           </div>
           <div class="stat-card">
-            <div class="eyebrow">Errors</div>
+            <div class="eyebrow">Vead</div>
             <div class="value" id="statErrors">0</div>
-            <div class="meta">Blocking issues</div>
+            <div class="meta">Blokeerivad probleemid</div>
           </div>
           <div class="stat-card">
-            <div class="eyebrow">Warnings</div>
+            <div class="eyebrow">Hoiatused</div>
             <div class="value" id="statWarnings">0</div>
-            <div class="meta">Quality or completeness gaps</div>
+            <div class="meta">Kvaliteedi- või täielikkuse puudujäägid</div>
           </div>
           <div class="stat-card">
-            <div class="eyebrow">Previewable rows</div>
+            <div class="eyebrow">Eelvaadatavad read</div>
             <div class="value" id="statReady">0</div>
-            <div class="meta">No blocking errors</div>
+            <div class="meta">Ilma blokeerivate vigadeta</div>
           </div>
         </section>
 
@@ -238,15 +238,15 @@
           <section class="panel">
             <div class="panel-heading">
               <div>
-                <div class="eyebrow">Products</div>
-                <h3>Choose a row to inspect</h3>
+                <div class="eyebrow">Tooted</div>
+                <h3>Vali rida kontrollimiseks</h3>
               </div>
             </div>
             <div class="product-tools">
-              <input id="productSearch" class="search-input" type="text" placeholder="Search by product ID or title" />
+              <input id="productSearch" class="search-input" type="text" placeholder="Otsi toote ID või pealkirja järgi" />
               <div class="button-row">
-                <button type="button" class="mini-btn active" id="showFirstBtn">Show first 100</button>
-                <button type="button" class="mini-btn" id="randomSampleBtn">Show random sample</button>
+                <button type="button" class="mini-btn active" id="showFirstBtn">Näita esimest 100</button>
+                <button type="button" class="mini-btn" id="randomSampleBtn">Näita juhuvalimit</button>
               </div>
             </div>
             <div id="productListNotice" class="list-notice"></div>
@@ -262,15 +262,15 @@
             <section class="table-card">
               <div class="panel-heading">
                 <div>
-                  <div class="eyebrow">All diagnostics</div>
-                  <h3>Feed-wide issue list</h3>
+                  <div class="eyebrow">Kõik tähelepanekud</div>
+                  <h3>Feedi probleemide nimekiri</h3>
                 </div>
               </div>
               <div id="issuesNotice" class="list-notice" style="margin-bottom: 14px;"></div>
               <div class="table-wrap">
                 <table>
                   <thead>
-                    <tr><th>Severity</th><th>Field</th><th>Product</th><th>What to change</th></tr>
+                    <tr><th>Tõsidus</th><th>Väli</th><th>Toode</th><th>Mida muuta</th></tr>
                   </thead>
                   <tbody id="issuesTableBody"></tbody>
                 </table>
@@ -284,7 +284,7 @@
 
   <script>
     const SAMPLE_FEED = `id\ttitle\tdescription\tlink\timage_link\tavailability\tprice\tbrand\tgtin\tcondition\tgoogle_product_category\tsale_price\tshipping
-SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and durable outsole for daily training.\thttps://example.com/product-1\thttps://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80\tin_stock\t129.99 EUR\tBrand sample\t0196608744102\tnew\tApparel & Accessories > Shoes\t109.99 EUR\tEE:::5.99 EUR`;
+SKU-1001\tJooksujalatsi näidis\tHingav jooksujalats pehmendatud tallaga ja vastupidava välistallaga igapäevaseks treeninguks.\thttps://example.com/product-1\thttps://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80\tin_stock\t129.99 EUR\tNäidisbränd\t0196608744102\tnew\tApparel & Accessories > Shoes\t109.99 EUR\tEE:::5.99 EUR`;
 
     const SHIPPING_REQUIRED_COUNTRIES = new Set(["AU","AT","BE","BR","CA","CZ","DK","FI","FR","DE","GR","HU","IN","IE","IL","IT","JP","NZ","NL","NO","PL","PT","RO","SK","KR","ES","SE","CH","GB","US"]);
     const AVAILABILITY_VALUES = new Set(["in_stock", "out_of_stock", "preorder", "backorder"]);
@@ -302,7 +302,7 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
 
     const state = {
       rawFeed: SAMPLE_FEED,
-      lastSource: "Sample feed",
+      lastSource: "Näidisfeed",
       parsed: { rows: [], format: "unknown", headers: [] },
       products: [],
       allIssues: [],
@@ -480,7 +480,7 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       const parser = new DOMParser();
       const xml = parser.parseFromString(text, "application/xml");
       const parserError = xml.querySelector("parsererror");
-      if (parserError) throw new Error("XML feed could not be parsed. Please check that the file is valid XML.");
+      if (parserError) throw new Error("XML feedi ei õnnestunud töödelda. Kontrolli, et fail oleks korrektne XML.");
       const itemNodes = Array.from(xml.querySelectorAll("item, entry"));
       if (!itemNodes.length) return { rows: [], format: "xml", headers: [] };
       const headerSet = new Set();
@@ -508,7 +508,7 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       const metaHeaders = Object.keys(META_HEADER_HINTS).filter((key) => normalizedHeaders.includes(key));
       if (!metaHeaders.length) return "";
       const suggestions = metaHeaders.map((key) => `${key} -> ${META_HEADER_HINTS[key]}`).join(", ");
-      return `This file does not use Google Merchant Center column names. Rename the columns to Google attribute names instead, for example: ${suggestions}.`;
+      return `See fail ei kasuta Google Merchant Centeri veerunimesid. Nimeta veerud ümber Google’i atribuutide nimedeks, näiteks: ${suggestions}.`;
     }
 
     function toBooleanFalse(value) {
@@ -553,7 +553,7 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return "example.com"; }
     }
 
-    function getTitle(product) { return cleanValue(product.structured_title || product.title || "Untitled product"); }
+    function getTitle(product) { return cleanValue(product.structured_title || product.title || "Pealkirjata toode"); }
     function getDescription(product) { return cleanValue(product.structured_description || product.description || ""); }
     function getShippingPrice(product) {
       const shipping = cleanValue(product.shipping || "");
@@ -576,41 +576,41 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       const hasStructuredTitle = Boolean(cleanValue(product.structured_title));
       const hasStructuredDescription = Boolean(cleanValue(product.structured_description));
 
-      if (!id) addIssue(issues, "error", "id", "Add a column named 'id' and make sure every product has a unique ID.");
-      if (id && context.idCounts.get(id) > 1) addIssue(issues, "error", "id", "Make each 'id' unique. This ID appears more than once in the feed.");
-      if (!title) addIssue(issues, "error", "title", "Add a column named 'title' and fill it for every product.");
-      if (!description) addIssue(issues, "error", "description", "Add a column named 'description' and fill it for every product.");
-      if (!cleanValue(product.link)) addIssue(issues, "error", "link", "Add a column named 'link' with a valid product page URL for every product.");
-      else if (!looksLikeUrl(product.link)) addIssue(issues, "error", "link", "Fix the 'link' value so it uses a valid http or https URL.");
-      if (!cleanValue(product.image_link)) addIssue(issues, "error", "image_link", "Add a column named 'image_link' with a valid product image URL for every product.");
-      else if (!looksLikeUrl(product.image_link)) addIssue(issues, "error", "image_link", "Fix the 'image_link' value so it uses a valid http or https URL.");
-      if (!availability) addIssue(issues, "error", "availability", "Add a column named 'availability' and use supported values such as in_stock, out_of_stock, preorder, or backorder.");
-      else if (!AVAILABILITY_VALUES.has(availability)) addIssue(issues, "error", "availability", "Change 'availability' to one of these values: in_stock, out_of_stock, preorder, or backorder.");
-      if ((availability === "preorder" || availability === "backorder") && !cleanValue(product.availability_date)) addIssue(issues, "error", "availability_date", "Add 'availability_date' because this product uses preorder or backorder.");
-      if (!cleanValue(product.price)) addIssue(issues, "error", "price", "Add a column named 'price' and fill it for every product.");
-      else if (!price) addIssue(issues, "error", "price", "Fix 'price' so it looks like '123.45 EUR' or '1,234.56 EUR'.");
-      if (price && price.amount <= 0) addIssue(issues, "error", "price", "Set 'price' to a value greater than zero.");
-      if (salePrice && !price) addIssue(issues, "warning", "sale_price", "Fix 'price' first so the sale price can be checked correctly.");
-      if (salePrice && price && salePrice.currency !== price.currency) addIssue(issues, "error", "sale_price", "Use the same currency in 'sale_price' and 'price'.");
-      if (salePrice && price && salePrice.amount >= price.amount) addIssue(issues, "error", "sale_price", "Make 'sale_price' lower than the regular 'price'.");
-      if (cleanValue(product.sale_price) && !salePrice) addIssue(issues, "error", "sale_price", "Fix 'sale_price' so it looks like '123.45 EUR' or '1,234.56 EUR'.");
-      if (condition && !CONDITION_VALUES.has(condition)) addIssue(issues, "error", "condition", "Change 'condition' to one of these values: new, used, or refurbished.");
+      if (!id) addIssue(issues, "error", "id", "Lisa veerg nimega 'id' ja veendu, et igal tootel oleks unikaalne ID.");
+      if (id && context.idCounts.get(id) > 1) addIssue(issues, "error", "id", "Tee iga 'id' unikaalseks. See ID esineb feedis rohkem kui ühe korra.");
+      if (!title) addIssue(issues, "error", "title", "Lisa veerg nimega 'title' ja täida see iga toote jaoks.");
+      if (!description) addIssue(issues, "error", "description", "Lisa veerg nimega 'description' ja täida see iga toote jaoks.");
+      if (!cleanValue(product.link)) addIssue(issues, "error", "link", "Lisa veerg nimega 'link' koos kehtiva tootelehe URL-iga iga toote jaoks.");
+      else if (!looksLikeUrl(product.link)) addIssue(issues, "error", "link", "Paranda 'link' väärtus nii, et see kasutaks kehtivat http või https URL-i.");
+      if (!cleanValue(product.image_link)) addIssue(issues, "error", "image_link", "Lisa veerg nimega 'image_link' koos kehtiva tootepildi URL-iga iga toote jaoks.");
+      else if (!looksLikeUrl(product.image_link)) addIssue(issues, "error", "image_link", "Paranda 'image_link' väärtus nii, et see kasutaks kehtivat http või https URL-i.");
+      if (!availability) addIssue(issues, "error", "availability", "Lisa veerg nimega 'availability' ja kasuta toetatud väärtusi nagu in_stock, out_of_stock, preorder või backorder.");
+      else if (!AVAILABILITY_VALUES.has(availability)) addIssue(issues, "error", "availability", "Muuda 'availability' üheks neist väärtustest: in_stock, out_of_stock, preorder või backorder.");
+      if ((availability === "preorder" || availability === "backorder") && !cleanValue(product.availability_date)) addIssue(issues, "error", "availability_date", "Lisa 'availability_date', sest see toode kasutab preorder või backorder väärtust.");
+      if (!cleanValue(product.price)) addIssue(issues, "error", "price", "Lisa veerg nimega 'price' ja täida see iga toote jaoks.");
+      else if (!price) addIssue(issues, "error", "price", "Paranda 'price', et see näeks välja näiteks '123.45 EUR' või '1,234.56 EUR'.");
+      if (price && price.amount <= 0) addIssue(issues, "error", "price", "Määra 'price' väärtuseks number, mis on suurem kui null.");
+      if (salePrice && !price) addIssue(issues, "warning", "sale_price", "Paranda kõigepealt 'price', et soodushinda saaks õigesti kontrollida.");
+      if (salePrice && price && salePrice.currency !== price.currency) addIssue(issues, "error", "sale_price", "Kasuta 'sale_price' ja 'price' puhul sama valuutat.");
+      if (salePrice && price && salePrice.amount >= price.amount) addIssue(issues, "error", "sale_price", "Muuda 'sale_price' tavahinnast madalamaks.");
+      if (cleanValue(product.sale_price) && !salePrice) addIssue(issues, "error", "sale_price", "Paranda 'sale_price', et see näeks välja näiteks '123.45 EUR' või '1,234.56 EUR'.");
+      if (condition && !CONDITION_VALUES.has(condition)) addIssue(issues, "error", "condition", "Muuda 'condition' üheks neist väärtustest: new, used või refurbished.");
 
       const gtin = cleanValue(product.gtin);
       const brand = cleanValue(product.brand);
       const mpn = cleanValue(product.mpn);
       const identifierExistsFalse = toBooleanFalse(product.identifier_exists);
       if (!gtin && !identifierExistsFalse) {
-        if (!brand) addIssue(issues, "warning", "brand", "Add 'brand' if the product has a brand. This improves matching and product quality.");
-        if (!mpn) addIssue(issues, "warning", "mpn", "If the product has no GTIN, add 'mpn' where possible or use 'identifier_exists' = no when identifiers truly do not exist.");
+        if (!brand) addIssue(issues, "warning", "brand", "Lisa 'brand', kui tootel on bränd. See parandab vasteid ja tootekvaliteeti.");
+        if (!mpn) addIssue(issues, "warning", "mpn", "Kui tootel pole GTIN-i, lisa võimalusel 'mpn' või kasuta 'identifier_exists' = no juhul, kui identifikaatoreid tõesti ei ole.");
       }
 
-      if (title && description && title.toLowerCase() === description.toLowerCase()) addIssue(issues, "warning", "description", "Change the description so it adds more detail instead of repeating the title.");
-      if (title && title.length > 150) addIssue(issues, "warning", "title", "Shorten the title. Very long titles may be truncated.");
-      if (description && description.length < 40) addIssue(issues, "warning", "description", "Expand the description. It is very short and may not provide enough detail.");
-      if (SHIPPING_REQUIRED_COUNTRIES.has(context.targetCountry) && !cleanValue(product.shipping)) addIssue(issues, "warning", "shipping", "Add shipping information in the feed or make sure shipping is configured at account level for this country.");
-      if (!hasStructuredTitle && /ai|generated by/i.test(title)) addIssue(issues, "warning", "structured_title", "If the title was AI-generated, use 'structured_title' with the correct digital source type.");
-      if (!hasStructuredDescription && /ai|generated by/i.test(description)) addIssue(issues, "warning", "structured_description", "If the description was AI-generated, use 'structured_description' with the correct digital source type.");
+      if (title && description && title.toLowerCase() === description.toLowerCase()) addIssue(issues, "warning", "description", "Muuda kirjeldust nii, et see lisaks rohkem infot ega kordaks ainult pealkirja.");
+      if (title && title.length > 150) addIssue(issues, "warning", "title", "Lühenda pealkirja. Väga pikad pealkirjad võidakse tulemustes ära lõigata.");
+      if (description && description.length < 40) addIssue(issues, "warning", "description", "Pikenda kirjeldust. See on väga lühike ega pruugi anda piisavalt infot.");
+      if (SHIPPING_REQUIRED_COUNTRIES.has(context.targetCountry) && !cleanValue(product.shipping)) addIssue(issues, "warning", "shipping", "Lisa tarneinfo feedi või veendu, et shipping on selle riigi jaoks konto tasemel seadistatud.");
+      if (!hasStructuredTitle && /ai|generated by/i.test(title)) addIssue(issues, "warning", "structured_title", "Kui pealkiri on loodud tehisintellektiga, kasuta välja 'structured_title' koos korrektse digital source type väärtusega.");
+      if (!hasStructuredDescription && /ai|generated by/i.test(description)) addIssue(issues, "warning", "structured_description", "Kui kirjeldus on loodud tehisintellektiga, kasuta välja 'structured_description' koos korrektse digital source type väärtusega.");
       return issues;
     }
 
@@ -619,12 +619,12 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
     }
 
     function groupIssuesByProduct(products) {
-      return products.flatMap((product) => product.issues.map((issue) => ({ productId: cleanValue(product.id) || `Row ${product.__row || "?"}`, title: getTitle(product), severity: issue.severity, field: issue.field, message: issue.message })));
+      return products.flatMap((product) => product.issues.map((issue) => ({ productId: cleanValue(product.id) || `Rida ${product.__row || "?"}`, title: getTitle(product), severity: issue.severity, field: issue.field, message: issue.message })));
     }
 
     function statusTone(errors, warnings) { if (errors > 0) return "blocked"; if (warnings > 0) return "review"; return "ready"; }
-    function toneLabel(tone) { if (tone === "ready") return "Looks eligible"; if (tone === "review") return "Usable, but improve it"; return "Blocked by errors"; }
-    function severityBadge(severity) { return `<span class="status-pill ${severity === "error" ? "error" : "warn"}">${severity === "error" ? "Error" : "Warning"}</span>`; }
+    function toneLabel(tone) { if (tone === "ready") return "Sobib esialgu"; if (tone === "review") return "Kasutatav, aga vajab parandusi"; return "Vigade tõttu blokeeritud"; }
+    function severityBadge(severity) { return `<span class="status-pill ${severity === "error" ? "error" : "warn"}">${severity === "error" ? "Viga" : "Hoiatus"}</span>`; }
 
     function buildProducts(rows, targetCountry) {
       const idCounts = new Map();
@@ -674,8 +674,8 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
     function updateCountryNotice() {
       const code = els.targetCountry.value;
       els.countryNotice.textContent = SHIPPING_REQUIRED_COUNTRIES.has(code)
-        ? "For this target country, shipping is often required. The tool warns when it is missing from a row, but shipping can also be configured at account level."
-        : "For this target country, the tool focuses on core feed structure and attribute quality. Additional market-specific rules may still apply.";
+        ? "Selle sihtriigi puhul on shipping tihti vajalik. Tööriist hoiatab, kui see reas puudub, kuid shipping võib olla seadistatud ka konto tasemel."
+        : "Selle sihtriigi puhul keskendub tööriist feedi põhistruktuurile ja atribuutide kvaliteedile. Lisanduda võivad ka turupõhised reeglid.";
     }
 
     function renderStats(products, format, allIssues) {
@@ -683,7 +683,7 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       const warnings = allIssues.filter((issue) => issue.severity === "warning").length;
       const readyCount = products.filter((product) => summarizeSeverity(product.issues).errors === 0).length;
       els.statProducts.textContent = products.length;
-      els.statProductsMeta.textContent = `Source format: ${format}`;
+      els.statProductsMeta.textContent = `Allika vorming: ${format}`;
       els.statErrors.textContent = errors;
       els.statWarnings.textContent = warnings;
       els.statReady.textContent = readyCount;
@@ -697,14 +697,14 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       els.randomSampleBtn.classList.toggle("active", !query && state.sampleMode === "random");
 
       if (!products.length) {
-        els.productListNotice.textContent = "No products were parsed.";
-        els.productList.innerHTML = '<div class="empty-box muted">No rows were parsed yet. Upload a feed or paste content.</div>';
+        els.productListNotice.textContent = "Ühtegi toodet ei loetud sisse.";
+        els.productList.innerHTML = '<div class="empty-box muted">Ühtegi rida ei loetud veel sisse. Laadi üles feed või kleebi sisu.</div>';
         return;
       }
 
       if (!visibleIndices.length) {
-        els.productListNotice.textContent = `No products matched your search for "${query}".`;
-        els.productList.innerHTML = '<div class="empty-box muted">No matching products found. Try a different product ID or title.</div>';
+        els.productListNotice.textContent = `Otsingule "${query}" ei leitud ühtegi sobivat toodet.`;
+        els.productList.innerHTML = '<div class="empty-box muted">Sobivaid tooteid ei leitud. Proovi teist toote ID-d või pealkirja.</div>';
         return;
       }
 
@@ -713,13 +713,13 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       }
 
       if (query) {
-        els.productListNotice.textContent = `Found ${visibleIndices.length} matching products for "${query}". Showing up to ${MAX_VISIBLE_PRODUCTS}.`;
+        els.productListNotice.textContent = `Leiti ${visibleIndices.length} sobivat toodet otsingule "${query}". Kuvatakse kuni ${MAX_VISIBLE_PRODUCTS}.`;
       } else if (state.sampleMode === "random") {
-        els.productListNotice.textContent = `The feed contains ${products.length} products. Showing a random sample of up to ${MAX_VISIBLE_PRODUCTS}. Click "Show random sample" again for a different set.`;
+        els.productListNotice.textContent = `Feedis on kokku ${products.length} toodet. Kuvatakse juhuvalim kuni ${MAX_VISIBLE_PRODUCTS} tootest. Vajuta "Näita juhuvalimit" uuesti, et näha teist valimit.`;
       } else if (products.length > MAX_VISIBLE_PRODUCTS) {
-        els.productListNotice.textContent = `The feed contains ${products.length} products. Showing the first ${MAX_VISIBLE_PRODUCTS}.`;
+        els.productListNotice.textContent = `Feedis on kokku ${products.length} toodet. Kuvatakse esimesed ${MAX_VISIBLE_PRODUCTS}.`;
       } else {
-        els.productListNotice.textContent = `The feed contains ${products.length} products. Showing all products.`;
+        els.productListNotice.textContent = `Feedis on kokku ${products.length} toodet. Kuvatakse kõik tooted.`;
       }
 
       els.productList.innerHTML = visibleIndices.map((actualIndex) => {
@@ -729,11 +729,11 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
         const toneClass = tone === "ready" ? "success" : tone === "review" ? "warn" : "error";
         return `
           <div class="product-list-item ${actualIndex === state.selectedIndex ? "active" : ""}" data-actual-index="${actualIndex}">
-            <div style="font-size:14px; font-weight:700;">${escapeHtml(getTitle(product) || `Row ${actualIndex + 1}`)}</div>
-            <div class="product-meta" style="font-size:12px; margin-top:4px;">${escapeHtml(cleanValue(product.id) || `Row ${product.__row || actualIndex + 1}`)}</div>
+            <div style="font-size:14px; font-weight:700;">${escapeHtml(getTitle(product) || `Rida ${actualIndex + 1}`)}</div>
+            <div class="product-meta" style="font-size:12px; margin-top:4px;">${escapeHtml(cleanValue(product.id) || `Rida ${product.__row || actualIndex + 1}`)}</div>
             <div class="product-list" style="margin-top:10px; gap:8px;">
               <span class="status-pill ${actualIndex === state.selectedIndex ? "neutral" : toneClass}">${escapeHtml(toneLabel(tone))}</span>
-              <span class="status-pill neutral">${summary.errors} errors · ${summary.warnings} warnings</span>
+              <span class="status-pill neutral">${summary.errors} viga · ${summary.warnings} hoiatust</span>
             </div>
           </div>`;
       }).join("");
@@ -748,11 +748,11 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
 
     function renderShoppingPreview(product) {
       if (!product) {
-        els.shoppingPreview.innerHTML = '<div class="empty-box muted">The paid Shopping preview will appear here after parsing.</div>';
+        els.shoppingPreview.innerHTML = '<div class="empty-box muted">Pärast töötlemist kuvatakse siia tasulise Shoppingu eelvaade.</div>';
         return;
       }
       const availability = cleanValue(product.availability).toLowerCase();
-      const availabilityLabel = availability === "in_stock" ? "In stock" : availability === "out_of_stock" ? "Out of stock" : availability === "preorder" ? "Preorder" : availability === "backorder" ? "Backorder" : "Availability unclear";
+      const availabilityLabel = availability === "in_stock" ? "Laos" : availability === "out_of_stock" ? "Läbi müüdud" : availability === "preorder" ? "Ettetellitav" : availability === "backorder" ? "Järeltellitav" : "Saadavus ebaselge";
       const salePrice = cleanValue(product.sale_price);
       const price = cleanValue(product.price);
       const shipping = getShippingPrice(product);
@@ -760,49 +760,49 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       const reviewCount = cleanValue(product.review_count);
       const tone = availability === "in_stock" ? "success" : "warn";
       els.shoppingPreview.innerHTML = `
-        <div class="preview-label">Paid Shopping-style preview</div>
+        <div class="preview-label">Tasulise Shoppingu eelvaade</div>
         <div class="shopping-card">
           <img class="product-image" src="${escapeHtml(getImage(product))}" alt="${escapeHtml(getTitle(product))}" onerror="this.src='${PLACEHOLDER_IMAGE}'" />
           <div>
             <div class="site-domain">${escapeHtml(getDomain(product.link))}</div>
             <div class="product-title">${escapeHtml(getTitle(product))}</div>
             <div class="price-row">
-              ${salePrice ? `<span class="price-main">${escapeHtml(salePrice)}</span><span class="price-old">${escapeHtml(price)}</span><span class="tone-pill warn">Sale</span>` : `<span class="price-main">${escapeHtml(price || "Price missing")}</span>`}
+              ${salePrice ? `<span class="price-main">${escapeHtml(salePrice)}</span><span class="price-old">${escapeHtml(price)}</span><span class="tone-pill warn">Soodus</span>` : `<span class="price-main">${escapeHtml(price || "Hind puudub")}</span>`}
             </div>
             <div class="product-list" style="margin-top:12px;">
               <span class="tone-pill ${tone}">${escapeHtml(availabilityLabel)}</span>
               ${cleanValue(product.brand) ? `<span class="tone-pill neutral">${escapeHtml(product.brand)}</span>` : ""}
-              ${shipping ? `<span class="tone-pill neutral">Shipping ${escapeHtml(shipping)}</span>` : ""}
+              ${shipping ? `<span class="tone-pill neutral">Tarne ${escapeHtml(shipping)}</span>` : ""}
             </div>
             ${rating ? `<div class="meta-line">⭐ ${escapeHtml(rating)}${reviewCount ? ` (${escapeHtml(reviewCount)})` : ""}</div>` : ""}
-            <div class="snippet">${escapeHtml(getDescription(product) || "No description available for preview.")}</div>
+            <div class="snippet">${escapeHtml(getDescription(product) || "Eelvaate jaoks puudub kirjeldus.")}</div>
           </div>
         </div>`;
     }
 
     function renderOrganicPreview(product) {
       if (!product) {
-        els.organicPreview.innerHTML = '<div class="empty-box muted">The organic result preview will appear here after parsing.</div>';
+        els.organicPreview.innerHTML = '<div class="empty-box muted">Pärast töötlemist kuvatakse siia orgaanilise tulemuse eelvaade.</div>';
         return;
       }
       const price = cleanValue(product.sale_price || product.price);
       const availability = cleanValue(product.availability).toLowerCase();
       els.organicPreview.innerHTML = `
-        <div class="preview-label">Organic merchant listing preview</div>
+        <div class="preview-label">Orgaanilise tulemuse eelvaade</div>
         <div class="site-domain">${escapeHtml(getDomain(product.link))}</div>
-        <div class="organic-title">${escapeHtml(getTitle(product) || "Untitled product")}</div>
+        <div class="organic-title">${escapeHtml(getTitle(product) || "Pealkirjata toode")}</div>
         <div class="organic-domain">${escapeHtml(getDomain(product.link))}</div>
         <div class="meta-line">
           ${price ? `<strong style="color:#0f172a;">${escapeHtml(price)}</strong>` : ""}
           ${availability ? ` · ${escapeHtml(availability.replace(/_/g, " "))}` : ""}
           ${cleanValue(product.brand) ? ` · ${escapeHtml(product.brand)}` : ""}
         </div>
-        <div class="snippet">${escapeHtml(getDescription(product) || "No description available for preview.")}</div>`;
+        <div class="snippet">${escapeHtml(getDescription(product) || "Eelvaate jaoks puudub kirjeldus.")}</div>`;
     }
 
     function renderDiagnostics(product) {
       if (!product) {
-        els.diagnosticsCard.innerHTML = '<div class="empty-box muted">Diagnostics will appear here after parsing.</div>';
+        els.diagnosticsCard.innerHTML = '<div class="empty-box muted">Pärast töötlemist kuvatakse siia diagnostika.</div>';
         return;
       }
       const summary = summarizeSeverity(product.issues);
@@ -810,13 +810,13 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       const bannerClass = tone === "ready" ? "ready" : tone === "review" ? "review" : "blocked";
       const issuesHtml = product.issues.length
         ? product.issues.map((issue) => `<div class="diagnostic-item"><div class="diagnostic-top"><strong>${escapeHtml(issue.field)}</strong>${severityBadge(issue.severity)}</div><div class="snippet" style="margin-top:0;">${escapeHtml(issue.message)}</div></div>`).join("")
-        : '<div class="info-box" style="color: var(--success-text); background: var(--success-bg); border-color: #a7f3d0;">No issues were found for this row with the current ruleset.</div>';
+        : '<div class="info-box" style="color: var(--success-text); background: var(--success-bg); border-color: #a7f3d0;">Selle rea kohta ei leitud praeguste reeglite järgi ühtegi probleemi.</div>';
       els.diagnosticsCard.innerHTML = `
         <div class="panel-heading" style="margin-bottom:0;">
           <div>
-            <div class="eyebrow">Diagnostics</div>
+            <div class="eyebrow">Diagnostika</div>
             <h3>${escapeHtml(getTitle(product))}</h3>
-            <div class="muted" style="margin-top:6px; font-size:14px;">ID: ${escapeHtml(cleanValue(product.id) || `Row ${product.__row || "?"}`)}</div>
+            <div class="muted" style="margin-top:6px; font-size:14px;">ID: ${escapeHtml(cleanValue(product.id) || `Rida ${product.__row || "?"}`)}</div>
           </div>
           <div class="status-banner ${bannerClass}">${escapeHtml(toneLabel(tone))}</div>
         </div>
@@ -826,13 +826,13 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
     function renderIssuesTable(allIssues) {
       const visibleIssues = allIssues.slice(0, MAX_VISIBLE_ISSUES);
       if (!allIssues.length) {
-        els.issuesNotice.textContent = "No issues found.";
-        els.issuesTableBody.innerHTML = '<tr><td colspan="4" class="muted">No diagnostics entries yet.</td></tr>';
+        els.issuesNotice.textContent = "Probleeme ei leitud.";
+        els.issuesTableBody.innerHTML = '<tr><td colspan="4" class="muted">Diagnostika kirjeid veel ei ole.</td></tr>';
         return;
       }
       els.issuesNotice.textContent = allIssues.length > MAX_VISIBLE_ISSUES
-        ? `The feed contains ${allIssues.length} issues. The table shows the first ${MAX_VISIBLE_ISSUES}.`
-        : `The feed contains ${allIssues.length} issues. The table shows all issues.`;
+        ? `Feedis on kokku ${allIssues.length} probleemi. Tabelis kuvatakse esimesed ${MAX_VISIBLE_ISSUES}.`
+        : `Feedis on kokku ${allIssues.length} probleemi. Tabelis kuvatakse kõik probleemid.`;
       els.issuesTableBody.innerHTML = visibleIssues.map((issue) => `<tr><td>${severityBadge(issue.severity)}</td><td>${escapeHtml(issue.field)}</td><td>${escapeHtml(issue.productId)}</td><td>${escapeHtml(issue.message)}</td></tr>`).join("");
     }
 
@@ -877,7 +877,7 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
         regenerateRandomSample();
         if (state.selectedIndex >= state.products.length) state.selectedIndex = 0;
       } catch (error) {
-        state.parseError = error && error.message ? error.message : "The feed could not be parsed.";
+        state.parseError = error && error.message ? error.message : "Feedi ei õnnestunud töödelda.";
         state.headerMessage = "";
         state.parsed = { rows: [], format: "unknown", headers: [] };
         state.products = [];
@@ -895,7 +895,7 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "feed_diagnostics.csv";
+      link.download = "feed_diagnostika.csv";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -903,14 +903,14 @@ SKU-1001\tRunning shoe sample\tBreathable running shoe with cushioned sole and d
     }
 
     els.feedInput.value = SAMPLE_FEED;
-    els.feedInput.addEventListener("input", () => { state.rawFeed = els.feedInput.value; state.lastSource = "Pasted feed"; recalc(); });
+    els.feedInput.addEventListener("input", () => { state.rawFeed = els.feedInput.value; state.lastSource = "Kleebitud feed"; recalc(); });
     els.targetCountry.addEventListener("change", recalc);
     els.productSearch.addEventListener("input", () => { state.searchQuery = els.productSearch.value; render(); });
     els.showFirstBtn.addEventListener("click", () => { state.sampleMode = "first"; render(); });
     els.randomSampleBtn.addEventListener("click", () => { state.sampleMode = "random"; regenerateRandomSample(); render(); });
     els.loadSampleBtn.addEventListener("click", () => {
       state.rawFeed = SAMPLE_FEED;
-      state.lastSource = "Sample feed";
+      state.lastSource = "Näidisfeed";
       els.feedInput.value = SAMPLE_FEED;
       els.productSearch.value = "";
       state.searchQuery = "";
