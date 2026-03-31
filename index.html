@@ -24,34 +24,18 @@
       --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
       --radius-lg: 24px;
       --radius-md: 18px;
-      --radius-sm: 12px;
     }
 
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
     }
-
     a { color: inherit; text-decoration: none; }
-
-    .container {
-      max-width: 1380px;
-      margin: 0 auto;
-      padding: 28px 18px 56px;
-    }
-
-    .hero,
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius-lg);
-    }
-
+    .container { max-width: 1380px; margin: 0 auto; padding: 28px 18px 56px; }
+    .hero, .panel { background: var(--panel); border: 1px solid var(--border); box-shadow: var(--shadow); border-radius: var(--radius-lg); }
     .hero {
       padding: 30px;
       display: grid;
@@ -59,503 +43,74 @@
       gap: 28px;
       background: linear-gradient(135deg, #ffffff 0%, #ffffff 60%, #f1f5f9 100%);
     }
-
-    .badge-row,
-    .chips,
-    .actions,
-    .stat-grid,
-    .preview-grid,
-    .suggestion-grid,
-    .product-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .badge-row, .chips, .actions, .product-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .pill, .tone-pill, .status-pill, .mini-btn, .ghost-link, .chip {
+      display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; font-size: 13px; font-weight: 600; white-space: nowrap;
     }
-
-    .pill,
-    .tone-pill,
-    .status-pill,
-    .mini-btn,
-    .ghost-link,
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .pill, .chip {
-      padding: 9px 14px;
-      background: #f1f5f9;
-      color: #334155;
-    }
-
-    .mini-btn,
-    .ghost-link,
-    .button {
-      cursor: pointer;
-      transition: 0.15s ease;
-    }
-
-    .mini-btn,
-    .ghost-link,
-    .button {
-      padding: 12px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: #334155;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .mini-btn:hover,
-    .ghost-link:hover,
-    .button:hover {
-      background: #f8fafc;
-    }
-
-    .primary-btn {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
-    .primary-btn:hover {
-      background: #1e293b;
-    }
-
-    .hero h1 {
-      margin: 18px 0 0;
-      font-size: 40px;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      max-width: 820px;
-    }
-
-    .hero-side {
-      padding: 24px;
-      border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.92);
-      border: 1px solid var(--border);
-      align-self: stretch;
-    }
-
-    .subtle-note {
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: var(--radius-md);
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      color: #92400e;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .panel {
-      padding: 22px;
-    }
-
-    .panel h2,
-    .panel h3,
-    .panel h4,
-    .card-title {
-      margin: 0;
-    }
-
-    .panel-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .eyebrow {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #334155;
-    }
-
-    input[type="file"],
-    textarea,
-    select {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px 16px;
-      background: #f8fafc;
-      color: var(--text);
-      font: inherit;
-    }
-
-    textarea {
-      min-height: 290px;
-      resize: vertical;
-      line-height: 1.6;
-    }
-
-    .stack {
-      display: grid;
-      gap: 16px;
-    }
-
-    .summary-box,
-    .info-box,
-    .diagnostic-item,
-    .product-list-item,
-    .stat-card,
-    .preview-card,
-    .empty-box {
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: var(--radius-md);
-    }
-
-    .summary-box,
-    .info-box,
-    .empty-box {
-      padding: 16px;
-    }
-
-    .info-box {
-      background: var(--panel-soft);
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    .error-box {
-      background: var(--error-bg);
-      color: var(--error-text);
-      border: 1px solid #fecdd3;
-      border-radius: var(--radius-md);
-      padding: 16px;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .stat-card {
-      padding: 18px;
-    }
-
-    .stat-card .value {
-      font-size: 34px;
-      font-weight: 700;
-      margin-top: 10px;
-    }
-
-    .stat-card .meta,
-    .muted,
-    .product-meta,
-    .site-domain {
-      color: var(--muted);
-    }
-
-    .main-right {
-      display: grid;
-      gap: 24px;
-    }
-
-    .workspace {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 20px;
-    }
-
-    .product-list-wrap {
-      max-height: 860px;
-      overflow: auto;
-      display: grid;
-      gap: 12px;
-      padding-right: 2px;
-    }
-
-    .product-list-item {
-      padding: 14px;
-      cursor: pointer;
-      transition: 0.15s ease;
-    }
-
+    .pill, .chip { padding: 9px 14px; background: #f1f5f9; color: #334155; }
+    .mini-btn, .ghost-link, .button { cursor: pointer; transition: 0.15s ease; padding: 12px 16px; border-radius: 16px; border: 1px solid var(--border); background: #fff; color: #334155; font-size: 14px; font-weight: 600; }
+    .mini-btn:hover, .ghost-link:hover, .button:hover { background: #f8fafc; }
+    .hero h1 { margin: 18px 0 0; font-size: 40px; line-height: 1.08; letter-spacing: -0.03em; }
+    .hero p { margin: 18px 0 0; color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 820px; }
+    .hero-side { padding: 24px; border-radius: var(--radius-md); background: rgba(255,255,255,0.92); border: 1px solid var(--border); align-self: stretch; }
+    .subtle-note { margin-top: 18px; padding: 16px; border-radius: var(--radius-md); background: #fffbeb; border: 1px solid #fde68a; color: #92400e; line-height: 1.6; font-size: 14px; }
+    .layout { display: grid; grid-template-columns: 420px 1fr; gap: 24px; margin-top: 24px; }
+    .panel { padding: 22px; }
+    .panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    .eyebrow { color: var(--muted); font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+    .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 10px; color: #334155; }
+    input[type="file"], textarea, select { width: 100%; border: 1px solid var(--border); border-radius: 16px; padding: 14px 16px; background: #f8fafc; color: var(--text); font: inherit; }
+    textarea { min-height: 290px; resize: vertical; line-height: 1.6; }
+    .stack { display: grid; gap: 16px; }
+    .info-box, .diagnostic-item, .product-list-item, .stat-card, .preview-card, .empty-box { border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius-md); }
+    .info-box, .empty-box { padding: 16px; }
+    .info-box { background: var(--panel-soft); color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .error-box { background: var(--error-bg); color: var(--error-text); border: 1px solid #fecdd3; border-radius: var(--radius-md); padding: 16px; font-size: 14px; line-height: 1.7; }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .stat-card { padding: 18px; }
+    .stat-card .value { font-size: 34px; font-weight: 700; margin-top: 10px; }
+    .stat-card .meta, .muted, .product-meta, .site-domain { color: var(--muted); }
+    .main-right { display: grid; gap: 24px; }
+    .workspace { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
+    .product-list-wrap { max-height: 860px; overflow: auto; display: grid; gap: 12px; padding-right: 2px; }
+    .product-list-item { padding: 14px; cursor: pointer; transition: 0.15s ease; }
     .product-list-item:hover { background: #f8fafc; }
-
-    .product-list-item.active {
-      background: #0f172a;
-      border-color: #0f172a;
-      color: #fff;
-    }
-
-    .product-list-item.active .muted,
-    .product-list-item.active .product-meta { color: #cbd5e1; }
-
-    .preview-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .preview-card,
-    .diagnostics-card,
-    .table-card {
-      padding: 16px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: #fff;
-    }
-
-    .preview-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #475569;
-    }
-
-    .shopping-card {
-      display: flex;
-      gap: 14px;
-    }
-
-    .product-image {
-      width: 112px;
-      height: 112px;
-      object-fit: cover;
-      background: #f1f5f9;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      flex-shrink: 0;
-    }
-
-    .product-title {
-      font-size: 15px;
-      line-height: 1.45;
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .price-main {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .price-old {
-      text-decoration: line-through;
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    .tone-pill,
-    .status-pill {
-      padding: 7px 11px;
-      font-size: 12px;
-    }
-
-    .tone-pill.success,
-    .status-pill.success {
-      background: var(--success-bg);
-      color: var(--success-text);
-    }
-
-    .tone-pill.warn,
-    .status-pill.warn {
-      background: var(--warn-bg);
-      color: var(--warn-text);
-    }
-
-    .tone-pill.error,
-    .status-pill.error {
-      background: var(--error-bg);
-      color: var(--error-text);
-    }
-
-    .tone-pill.neutral,
-    .status-pill.neutral {
-      background: #f1f5f9;
-      color: #475569;
-    }
-
-    .snippet {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.65;
-      margin-top: 12px;
-    }
-
-    .organic-title {
-      margin-top: 6px;
-      color: var(--google-blue);
-      font-size: 22px;
-      line-height: 1.35;
-    }
-
-    .organic-domain {
-      color: var(--google-green);
-      font-size: 14px;
-      margin-top: 4px;
-    }
-
-    .meta-line {
-      margin-top: 14px;
-      color: #475569;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .diagnostics-card {
-      display: grid;
-      gap: 12px;
-    }
-
-    .diagnostic-item {
-      padding: 14px;
-    }
-
-    .diagnostic-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .status-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      border: 1px solid transparent;
-    }
-
-    .status-banner.ready {
-      background: var(--success-bg);
-      color: var(--success-text);
-      border-color: #a7f3d0;
-    }
-
-    .status-banner.review {
-      background: var(--warn-bg);
-      color: var(--warn-text);
-      border-color: #fde68a;
-    }
-
-    .status-banner.blocked {
-      background: var(--error-bg);
-      color: var(--error-text);
-      border-color: #fecdd3;
-    }
-
-    .table-wrap {
-      max-height: 420px;
-      overflow: auto;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    th, td {
-      padding: 13px 14px;
-      border-bottom: 1px solid #edf2f7;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    thead th {
-      position: sticky;
-      top: 0;
-      background: #f8fafc;
-      color: #475569;
-      z-index: 1;
-    }
-
-    .suggestion-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .suggestion-item {
-      padding: 14px;
-      border-radius: 16px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      color: #334155;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .list-notice {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      color: #475569;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
+    .product-list-item.active { background: #0f172a; border-color: #0f172a; color: #fff; }
+    .product-list-item.active .muted, .product-list-item.active .product-meta { color: #cbd5e1; }
+    .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .preview-card, .diagnostics-card, .table-card { padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-md); background: #fff; }
+    .preview-label { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: 14px; font-weight: 700; color: #475569; }
+    .shopping-card { display: flex; gap: 14px; }
+    .product-image { width: 112px; height: 112px; object-fit: cover; background: #f1f5f9; border-radius: 18px; border: 1px solid var(--border); flex-shrink: 0; }
+    .product-title { font-size: 15px; line-height: 1.45; font-weight: 700; margin-top: 4px; }
+    .price-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .price-main { font-size: 22px; font-weight: 700; }
+    .price-old { text-decoration: line-through; color: #94a3b8; font-size: 14px; }
+    .tone-pill, .status-pill { padding: 7px 11px; font-size: 12px; }
+    .tone-pill.success, .status-pill.success { background: var(--success-bg); color: var(--success-text); }
+    .tone-pill.warn, .status-pill.warn { background: var(--warn-bg); color: var(--warn-text); }
+    .tone-pill.error, .status-pill.error { background: var(--error-bg); color: var(--error-text); }
+    .tone-pill.neutral, .status-pill.neutral { background: #f1f5f9; color: #475569; }
+    .snippet { color: var(--muted); font-size: 14px; line-height: 1.65; margin-top: 12px; }
+    .organic-title { margin-top: 6px; color: var(--google-blue); font-size: 22px; line-height: 1.35; }
+    .organic-domain { color: var(--google-green); font-size: 14px; margin-top: 4px; }
+    .meta-line { margin-top: 14px; color: #475569; font-size: 14px; line-height: 1.6; }
+    .diagnostics-card { display: grid; gap: 12px; }
+    .diagnostic-item { padding: 14px; }
+    .diagnostic-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .status-banner { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; border: 1px solid transparent; }
+    .status-banner.ready { background: var(--success-bg); color: var(--success-text); border-color: #a7f3d0; }
+    .status-banner.review { background: var(--warn-bg); color: var(--warn-text); border-color: #fde68a; }
+    .status-banner.blocked { background: var(--error-bg); color: var(--error-text); border-color: #fecdd3; }
+    .table-wrap { max-height: 420px; overflow: auto; border: 1px solid var(--border); border-radius: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 13px 14px; border-bottom: 1px solid #edf2f7; text-align: left; vertical-align: top; }
+    thead th { position: sticky; top: 0; background: #f8fafc; color: #475569; z-index: 1; }
+    .suggestion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .suggestion-item { padding: 14px; border-radius: 16px; background: #f8fafc; border: 1px solid var(--border); color: #334155; font-size: 14px; line-height: 1.6; }
+    .list-notice { padding: 12px 14px; border-radius: 16px; background: #f8fafc; border: 1px solid var(--border); color: #475569; font-size: 14px; line-height: 1.6; }
     .hidden { display: none !important; }
-
-    @media (max-width: 1180px) {
-      .hero,
-      .layout,
-      .workspace,
-      .preview-grid,
-      .stats {
-        grid-template-columns: 1fr;
-      }
-    }
-
+    @media (max-width: 1180px) { .hero, .layout, .workspace, .preview-grid, .stats { grid-template-columns: 1fr; } }
     @media (max-width: 720px) {
       .container { padding: 18px 14px 42px; }
       .hero { padding: 20px; }
@@ -572,13 +127,10 @@
     <section class="hero">
       <div>
         <div class="badge-row">
-          <span class="pill">Google Shoppingu feedi eelvaade ja reeglikontroll</span>
+          <span class="pill">Google Shopping feedi eelvaade ja reeglikontroll</span>
         </div>
         <h1>Kontrolli toote feedi ja vaata, kuidas tooted võiksid paista Google'i tasulistes ja orgaanilistes tulemustes.</h1>
-        <p>
-          Laadi üles feedi fail või kleebi CSV-, TSV- või XML-sisu. Tööriist kontrollib Merchant Centeri põhiatribuute,
-          märgib tõenäolised vastavusprobleemid ja kuvab realistliku Shoppingu ning orgaanilise tulemuse eelvaate.
-        </p>
+        <p>Laadi üles feedi fail või kleebi CSV-, TSV- või XML-sisu. Tööriist kontrollib Merchant Centeri põhiatribuute, märgib tõenäolised vastavusprobleemid ja kuvab realistliku Shoppingu ning orgaanilise tulemuse eelvaate.</p>
         <div class="chips" style="margin-top: 18px;">
           <span class="chip">Faili üleslaadimine</span>
           <span class="chip">CSV / TSV / XML</span>
@@ -589,7 +141,6 @@
           <a class="ghost-link" href="https://support.google.com/merchants/answer/7052112?hl=en" target="_blank" rel="noreferrer">Merchant Centeri tehniline kirjeldus</a>
         </div>
       </div>
-
       <div class="hero-side">
         <div class="eyebrow">Milleks see versioon sobib</div>
         <div class="suggestion-grid" style="margin-top: 0;">
@@ -598,9 +149,7 @@
           <div class="suggestion-item">Duplikaat-ID-de ja vorminguvigade leidmine</div>
           <div class="suggestion-item">Google Shoppingu laadne eelvaade brauseris</div>
         </div>
-        <div class="subtle-note">
-          See on staatiline GitHub Pagesi versioon. URL-ilt feedi tõmbamist siin ei ole, et tööriist töötaks ilma backendita.
-        </div>
+        <div class="subtle-note">See on staatiline GitHub Pagesi versioon. URL-ilt feedi tõmbamist siin ei ole, et tööriist töötaks ilma backendita.</div>
       </div>
     </section>
 
@@ -613,13 +162,11 @@
               <h2>Laadi fail või kleebi sisu</h2>
             </div>
           </div>
-
           <div class="stack">
             <div>
               <label class="label" for="feedFile">Laadi üles feedi fail</label>
               <input id="feedFile" type="file" accept=".txt,.tsv,.csv,.xml,.rss,.atom" />
             </div>
-
             <div>
               <label class="label" for="targetCountry">Sihtriik</label>
               <select id="targetCountry">
@@ -634,7 +181,6 @@
                 <option value="US">Ameerika Ühendriigid (US)</option>
               </select>
             </div>
-
             <div>
               <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
                 <label class="label" for="feedInput" style="margin:0;">Kleebi feedi sisu</label>
@@ -653,10 +199,8 @@
             </div>
             <span class="pill" id="sourceFormat">TSV</span>
           </div>
-
           <div class="info-box" id="countryNotice"></div>
           <div class="error-box hidden" id="parseError"></div>
-
           <div class="actions">
             <button type="button" class="button" id="downloadCsvBtn">Ekspordi diagnostika CSV</button>
             <a class="ghost-link" href="https://support.google.com/merchants/answer/7052112?hl=en" target="_blank" rel="noreferrer">Ava tehniline kirjeldus</a>
@@ -665,7 +209,7 @@
       </div>
 
       <div class="main-right">
-        <section class="stats" id="statsWrap">
+        <section class="stats">
           <div class="stat-card">
             <div class="eyebrow">Loetud tooted</div>
             <div class="value" id="statProducts">0</div>
@@ -705,9 +249,7 @@
               <section class="preview-card" id="shoppingPreview"></section>
               <section class="preview-card" id="organicPreview"></section>
             </div>
-
             <section class="diagnostics-card" id="diagnosticsCard"></section>
-
             <section class="table-card">
               <div class="panel-heading">
                 <div>
@@ -719,18 +261,12 @@
               <div class="table-wrap">
                 <table>
                   <thead>
-                    <tr>
-                      <th>Tase</th>
-                      <th>Väli</th>
-                      <th>Toode</th>
-                      <th>Sõnum</th>
-                    </tr>
+                    <tr><th>Tase</th><th>Väli</th><th>Toode</th><th>Sõnum</th></tr>
                   </thead>
                   <tbody id="issuesTableBody"></tbody>
                 </table>
               </div>
             </section>
-
             <section class="panel">
               <div class="eyebrow">Järgmine arendusetapp tootmiskasutuseks</div>
               <h3>Soovitused edasiseks</h3>
@@ -742,10 +278,7 @@
                 <div class="suggestion-item">Hoia Google'i spetsifikatsiooni muudatuste ajalugu</div>
                 <div class="suggestion-item">Loo kliendile jagatavad diagnostika lingid</div>
               </div>
-              <div class="info-box" style="margin-top:14px;">
-                Pärisrakenduse jaoks on suurim järgmine samm backend-validaator, mis tõmbab feedi, kontrollib tootelehte ja
-                võrdleb feedi andmeid maandumislehe andmetega enne eelvaate näitamist.
-              </div>
+              <div class="info-box" style="margin-top:14px;">Pärisrakenduse jaoks on suurim järgmine samm backend-validaator, mis tõmbab feedi, kontrollib tootelehte ja võrdleb feedi andmeid maandumislehe andmetega enne eelvaate näitamist.</div>
             </section>
           </div>
         </section>
@@ -755,35 +288,31 @@
 
   <script>
     const SAMPLE_FEED = `id\ttitle\tdescription\tlink\timage_link\tavailability\tprice\tbrand\tgtin\tcondition\tgoogle_product_category\tsale_price\tshipping
-SKU-1001\tNike Pegasus 41 meeste jooksujalatsid sinine 42\tKerge igapäevane jooksujalats hingava võrkkangast pealise, ReactX-vahu, kummist välistalla ja neutraalse sammuga maanteetrennide jaoks.\thttps://example.com/products/nike-pegasus-41-blue-42\thttps://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80\tin_stock\t129.99 EUR\tNike\t0196608744102\tnew\tApparel & Accessories > Shoes\t109.99 EUR\tEE:::5.99 EUR
-SKU-1002\tKäsitöö keraamiline kruus 350 ml metsaroheline\tKäsitsi vormitud keraamiline kruus mati glasuuriga, mahutavus umbes 350 ml, nõudepesumasinakindel, valmistatud väikestes partiides Eestis.\thttps://example.com/products/ceramic-mug-forest-green\thttps://images.unsplash.com/photo-1514228742587-6b1558fcf93a?w=800&auto=format&fit=crop&q=80\tin_stock\t24.00 EUR\tStudio North\\t\tnew\tHome & Garden > Kitchen & Dining > Tableware > Drinkware > Mugs\t\tEE:::4.50 EUR
-SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad peapealsed kõrvaklapid aktiivse mürasummutuse, 30-tunnise aku kestvuse, pehme istuvuse, kiirlaadimise ja multipoint Bluetooth-toega.\thttps://example.com/products/sony-wh-1000xm5\thttps://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80\tpreorder\t349.00 EUR\tSony\t4548736132580\tnew\tElectronics > Audio > Audio Components > Headphones\t\t`;
+SKU-1001\ttitle sample\tdescription sample\thttps://example.com/product-1\thttps://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80\tin_stock\t129.99 EUR\tNike\t0196608744102\tnew\tApparel & Accessories > Shoes\t109.99 EUR\tEE:::5.99 EUR`;
 
-    const SHIPPING_REQUIRED_COUNTRIES = new Set([
-      "AU","AT","BE","BR","CA","CZ","DK","FI","FR","DE","GR","HU","IN","IE","IL","IT","JP","NZ","NL","NO","PL","PT","RO","SK","KR","ES","SE","CH","GB","US"
-    ]);
-
+    const SHIPPING_REQUIRED_COUNTRIES = new Set(["AU","AT","BE","BR","CA","CZ","DK","FI","FR","DE","GR","HU","IN","IE","IL","IT","JP","NZ","NL","NO","PL","PT","RO","SK","KR","ES","SE","CH","GB","US"]);
     const AVAILABILITY_VALUES = new Set(["in_stock", "out_of_stock", "preorder", "backorder"]);
     const CONDITION_VALUES = new Set(["new", "used", "refurbished"]);
-    const PLACEHOLDER_IMAGE = "data:image/svg+xml;utf8," + encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
-        <rect width="640" height="640" fill="#f3f4f6"/>
-        <rect x="80" y="120" width="480" height="400" rx="28" fill="#e5e7eb"/>
-        <circle cx="220" cy="260" r="48" fill="#d1d5db"/>
-        <path d="M156 438l104-112 80 84 56-56 88 84H156z" fill="#cbd5e1"/>
-      </svg>
-    `);
+    const PLACEHOLDER_IMAGE = "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640"><rect width="640" height="640" fill="#f3f4f6"/><rect x="80" y="120" width="480" height="400" rx="28" fill="#e5e7eb"/><circle cx="220" cy="260" r="48" fill="#d1d5db"/><path d="M156 438l104-112 80 84 56-56 88 84H156z" fill="#cbd5e1"/></svg>`);
     const MAX_VISIBLE_PRODUCTS = 100;
     const MAX_VISIBLE_ISSUES = 500;
+    const META_HEADER_HINTS = {
+      item_title: "title",
+      final_url: "link",
+      image_url: "image_link",
+      item_description: "description",
+      additional_image_link: "additional_image_link"
+    };
 
     const state = {
       rawFeed: SAMPLE_FEED,
       lastSource: "Näidisfeed",
-      parsed: { rows: [], format: "unknown" },
+      parsed: { rows: [], format: "unknown", headers: [] },
       products: [],
       allIssues: [],
       selectedIndex: 0,
       parseError: "",
+      headerMessage: ""
     };
 
     const els = {
@@ -807,7 +336,7 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       organicPreview: document.getElementById("organicPreview"),
       diagnosticsCard: document.getElementById("diagnosticsCard"),
       issuesNotice: document.getElementById("issuesNotice"),
-      issuesTableBody: document.getElementById("issuesTableBody"),
+      issuesTableBody: document.getElementById("issuesTableBody")
     };
 
     function cleanValue(value) {
@@ -820,7 +349,7 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
+        .replace(/\"/g, "&quot;")
         .replace(/'/g, "&#039;");
     }
 
@@ -839,24 +368,23 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
 
     function detectDelimiter(text) {
       const firstLine = text.split(/\r?\n/).find((line) => cleanValue(line));
-      if (!firstLine) return "\t";
+      if (!firstLine) return ",";
       const candidates = ["\t", ",", ";", "|"];
-      const counts = candidates.map((delimiter) => ({
-        delimiter,
-        count: (firstLine.match(new RegExp(escapeRegExp(delimiter), "g")) || []).length,
-      }));
+      const counts = candidates.map((delimiter) => ({ delimiter, count: (firstLine.match(new RegExp(escapeRegExp(delimiter), "g")) || []).length }));
       counts.sort((a, b) => b.count - a.count);
-      return counts[0].count > 0 ? counts[0].delimiter : "\t";
+      return counts[0].count > 0 ? counts[0].delimiter : ",";
     }
 
-    function parseDelimitedLine(line, delimiter) {
-      const values = [];
+    function parseDelimitedText(text, delimiter) {
+      const normalized = String(text || "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+      const records = [];
+      let row = [];
       let current = "";
       let inQuotes = false;
 
-      for (let i = 0; i < line.length; i += 1) {
-        const char = line[i];
-        const next = line[i + 1];
+      for (let i = 0; i < normalized.length; i += 1) {
+        const char = normalized[i];
+        const next = normalized[i + 1];
 
         if (char === '"') {
           if (inQuotes && next === '"') {
@@ -869,7 +397,17 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
         }
 
         if (char === delimiter && !inQuotes) {
-          values.push(current);
+          row.push(cleanValue(current));
+          current = "";
+          continue;
+        }
+
+        if (char === "\n" && !inQuotes) {
+          row.push(cleanValue(current));
+          const hasContent = row.some((cell) => cleanValue(cell));
+          const isComment = cleanValue(row[0] || "").startsWith("#");
+          if (hasContent && !isComment) records.push(row);
+          row = [];
           current = "";
           continue;
         }
@@ -877,34 +415,29 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
         current += char;
       }
 
-      values.push(current);
-      return values.map((value) => cleanValue(value));
+      row.push(cleanValue(current));
+      const hasContent = row.some((cell) => cleanValue(cell));
+      const isComment = cleanValue(row[0] || "").startsWith("#");
+      if (hasContent && !isComment) records.push(row);
+
+      return records;
     }
 
     function parseTextFeed(text) {
-      const normalized = String(text || "").replace(/\r\n/g, "\n");
-      const lines = normalized
-        .split("\n")
-        .map((line) => line.trimEnd())
-        .filter((line) => cleanValue(line) && !line.trimStart().startsWith("#"));
+      const delimiter = detectDelimiter(text);
+      const records = parseDelimitedText(text, delimiter);
+      if (records.length < 2) return { rows: [], format: "tabular", headers: [] };
 
-      if (lines.length < 2) {
-        return { rows: [], format: "tabular" };
-      }
-
-      const delimiter = detectDelimiter(normalized);
-      const header = parseDelimitedLine(lines[0], delimiter).map(normalizeKey);
-      const rows = lines.slice(1).map((line, index) => {
-        const values = parseDelimitedLine(line, delimiter);
+      const rawHeader = records[0].map(cleanValue);
+      const header = rawHeader.map(normalizeKey);
+      const rows = records.slice(1).map((values, index) => {
         const record = {};
-        header.forEach((key, keyIndex) => {
-          record[key] = cleanValue(values[keyIndex] || "");
-        });
+        header.forEach((key, keyIndex) => { record[key] = cleanValue(values[keyIndex] || ""); });
         record.__row = index + 2;
         return record;
       });
 
-      return { rows, format: delimiter === "\t" ? "tsv" : delimiter === "," ? "csv" : "tabular" };
+      return { rows, format: delimiter === "\t" ? "tsv" : delimiter === "," ? "csv" : "tabular", headers: rawHeader };
     }
 
     function mergeValue(target, key, value) {
@@ -926,19 +459,16 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       const children = Array.from(element.children || []);
       const key = nodeNameWithoutNamespace(element);
       const hasElementChildren = children.length > 0;
-
       if (!hasElementChildren) {
         if (key === "link" && element.getAttribute("href")) return cleanValue(element.getAttribute("href"));
         return cleanValue(element.textContent || "");
       }
-
       if (key === "shipping") {
         const country = cleanValue((children.find((child) => nodeNameWithoutNamespace(child) === "country") || {}).textContent || "");
         const service = cleanValue((children.find((child) => nodeNameWithoutNamespace(child) === "service") || {}).textContent || "");
         const price = cleanValue((children.find((child) => nodeNameWithoutNamespace(child) === "price") || {}).textContent || "");
         return [country, service, price].filter(Boolean).join(":::");
       }
-
       const contentNode = children.find((child) => nodeNameWithoutNamespace(child) === "content");
       if (contentNode) return cleanValue(contentNode.textContent || "");
       return cleanValue(element.textContent || "");
@@ -948,31 +478,35 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       const parser = new DOMParser();
       const xml = parser.parseFromString(text, "application/xml");
       const parserError = xml.querySelector("parsererror");
-      if (parserError) {
-        throw new Error("XML-feed'i ei saanud töödelda. Kontrolli, et fail oleks korrektne XML.");
-      }
-
+      if (parserError) throw new Error("XML feed could not be parsed. Please check that the file is valid XML.");
       const itemNodes = Array.from(xml.querySelectorAll("item, entry"));
-      if (!itemNodes.length) return { rows: [], format: "xml" };
-
+      if (!itemNodes.length) return { rows: [], format: "xml", headers: [] };
+      const headerSet = new Set();
       const rows = itemNodes.map((itemNode, index) => {
         const record = { __row: index + 1 };
         Array.from(itemNode.children || []).forEach((child) => {
           const key = nodeNameWithoutNamespace(child);
-          const value = extractElementText(child);
-          mergeValue(record, key, value);
+          headerSet.add(key);
+          mergeValue(record, key, extractElementText(child));
         });
         return record;
       });
-
-      return { rows, format: "xml" };
+      return { rows, format: "xml", headers: Array.from(headerSet) };
     }
 
     function parseFeed(text) {
       const trimmed = cleanValue(text);
-      if (!trimmed) return { rows: [], format: "unknown" };
+      if (!trimmed) return { rows: [], format: "unknown", headers: [] };
       const looksLikeXml = trimmed.startsWith("<") || trimmed.startsWith("<?xml");
       return looksLikeXml ? parseXmlFeed(text) : parseTextFeed(text);
+    }
+
+    function buildHeaderMessage(headers) {
+      const normalizedHeaders = (headers || []).map(normalizeKey);
+      const metaHeaders = Object.keys(META_HEADER_HINTS).filter((key) => normalizedHeaders.includes(key));
+      if (!metaHeaders.length) return "";
+      const suggestions = metaHeaders.map((key) => `${key} -> ${META_HEADER_HINTS[key]}`).join(", ");
+      return `This file appears to use non-Google feed headers. It looks closer to a Meta/Facebook feed than a Google Merchant Center feed. Use Google attribute names instead, for example: ${suggestions}.`;
     }
 
     function toBooleanFalse(value) {
@@ -981,15 +515,27 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
     }
 
     function parsePriceString(value) {
-      const raw = cleanValue(value);
+      const raw = cleanValue(value).replace(/\s+/g, " ");
       if (!raw) return null;
-      const match = raw.match(/^(\d+(?:[.,]\d{1,2})?)\s([A-Z]{3})$/);
+      const match = raw.match(/^([0-9.,]+)\s([A-Z]{3})$/);
       if (!match) return null;
-      return {
-        amount: Number(match[1].replace(",", ".")),
-        currency: match[2],
-        raw,
-      };
+      const numberPart = match[1];
+      let normalizedNumber = numberPart;
+      if (numberPart.includes(",") && numberPart.includes(".")) {
+        normalizedNumber = numberPart.lastIndexOf(".") > numberPart.lastIndexOf(",")
+          ? numberPart.replace(/,/g, "")
+          : numberPart.replace(/\./g, "").replace(/,/g, ".");
+      } else if (numberPart.includes(",")) {
+        const parts = numberPart.split(",");
+        normalizedNumber = parts[parts.length - 1].length === 2 ? numberPart.replace(/\./g, "").replace(/,/g, ".") : numberPart.replace(/,/g, "");
+      } else if ((numberPart.match(/\./g) || []).length > 1) {
+        const parts = numberPart.split(".");
+        const decimalPart = parts.pop();
+        normalizedNumber = `${parts.join("")}.${decimalPart}`;
+      }
+      const amount = Number(normalizedNumber);
+      if (!Number.isFinite(amount)) return null;
+      return { amount, currency: match[2], raw };
     }
 
     function looksLikeUrl(value) {
@@ -1002,35 +548,19 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
     }
 
     function getDomain(url) {
-      try {
-        return new URL(url).hostname.replace(/^www\./, "");
-      } catch {
-        return "example.com";
-      }
+      try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return "example.com"; }
     }
 
-    function getTitle(product) {
-      return cleanValue(product.structured_title || product.title || "Pealkirjata toode");
-    }
-
-    function getDescription(product) {
-      return cleanValue(product.structured_description || product.description || "");
-    }
-
+    function getTitle(product) { return cleanValue(product.structured_title || product.title || "Pealkirjata toode"); }
+    function getDescription(product) { return cleanValue(product.structured_description || product.description || ""); }
     function getShippingPrice(product) {
       const shipping = cleanValue(product.shipping || "");
       if (!shipping) return "";
       const parts = shipping.split(":::").map(cleanValue).filter(Boolean);
       return parts[parts.length - 1] || shipping;
     }
-
-    function getImage(product) {
-      return cleanValue(product.image_link || "") || PLACEHOLDER_IMAGE;
-    }
-
-    function addIssue(issues, severity, field, message) {
-      issues.push({ severity, field, message });
-    }
+    function getImage(product) { return cleanValue(product.image_link || "") || PLACEHOLDER_IMAGE; }
+    function addIssue(issues, severity, field, message) { issues.push({ severity, field, message }); }
 
     function validateProduct(product, context) {
       const issues = [];
@@ -1044,133 +574,75 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       const hasStructuredTitle = Boolean(cleanValue(product.structured_title));
       const hasStructuredDescription = Boolean(cleanValue(product.structured_description));
 
-      if (!id) addIssue(issues, "error", "id", "Puudub kohustuslik atribuut: id.");
-      if (id && context.idCounts.get(id) > 1) addIssue(issues, "error", "id", "Sama id esineb feed'is mitu korda. ID peab olema unikaalne ja püsiv.");
-
-      if (!title) addIssue(issues, "error", "title", "Puudub kohustuslik atribuut: title või structured_title.");
-      if (!description) addIssue(issues, "error", "description", "Puudub kohustuslik atribuut: description või structured_description.");
-
-      if (!cleanValue(product.link)) {
-        addIssue(issues, "error", "link", "Puudub kohustuslik atribuut: link.");
-      } else if (!looksLikeUrl(product.link)) {
-        addIssue(issues, "error", "link", "Toote link peab olema korrektne http või https URL.");
-      }
-
-      if (!cleanValue(product.image_link)) {
-        addIssue(issues, "error", "image_link", "Puudub kohustuslik atribuut: image_link.");
-      } else if (!looksLikeUrl(product.image_link)) {
-        addIssue(issues, "error", "image_link", "Atribuudi image_link väärtus peab olema korrektne http või https URL.");
-      }
-
-      if (!availability) {
-        addIssue(issues, "error", "availability", "Puudub kohustuslik atribuut: availability.");
-      } else if (!AVAILABILITY_VALUES.has(availability)) {
-        addIssue(issues, "error", "availability", "availability peab kasutama toetatud väärtust nagu in_stock, out_of_stock, preorder või backorder.");
-      }
-
-      if ((availability === "preorder" || availability === "backorder") && !cleanValue(product.availability_date)) {
-        addIssue(issues, "error", "availability_date", "availability_date on kohustuslik, kui availability on preorder või backorder.");
-      }
-
-      if (!cleanValue(product.price)) {
-        addIssue(issues, "error", "price", "Puudub kohustuslik atribuut: price.");
-      } else if (!price) {
-        addIssue(issues, "error", "price", "Hind peab olema kujul '123.45 EUR' ja kasutama ISO 4217 valuutakoodi.");
-      }
-
-      if (price && price.amount <= 0) addIssue(issues, "error", "price", "Hind peab tavatoote puhul olema suurem kui 0.");
-      if (salePrice && !price) addIssue(issues, "warning", "sale_price", "Soodushind on olemas, kuid tavahinna vormingut ei saanud kontrollida.");
-      if (salePrice && price && salePrice.currency !== price.currency) addIssue(issues, "error", "sale_price", "sale_price peab kasutama sama valuutat mis price.");
-      if (salePrice && price && salePrice.amount >= price.amount) addIssue(issues, "error", "sale_price", "sale_price peaks olema tavahinnast madalam.");
-      if (cleanValue(product.sale_price) && !salePrice) addIssue(issues, "error", "sale_price", "sale_price peab olema kujul '123.45 EUR'.");
-
-      if (condition && !CONDITION_VALUES.has(condition)) addIssue(issues, "error", "condition", "condition peab olema new, used või refurbished.");
-      if (!condition) addIssue(issues, "warning", "condition", "condition ei ole alati uue toote puhul kohustuslik, kuid selle lisamine teeb feed'i selgemaks ja lihtsamini auditeeritavaks.");
+      if (!id) addIssue(issues, "error", "id", "Missing required attribute: id.");
+      if (id && context.idCounts.get(id) > 1) addIssue(issues, "error", "id", "The same id appears multiple times in the feed. IDs must be unique and stable.");
+      if (!title) addIssue(issues, "error", "title", "Missing required attribute: title or structured_title.");
+      if (!description) addIssue(issues, "error", "description", "Missing required attribute: description or structured_description.");
+      if (!cleanValue(product.link)) addIssue(issues, "error", "link", "Missing required attribute: link.");
+      else if (!looksLikeUrl(product.link)) addIssue(issues, "error", "link", "The product link must be a valid http or https URL.");
+      if (!cleanValue(product.image_link)) addIssue(issues, "error", "image_link", "Missing required attribute: image_link.");
+      else if (!looksLikeUrl(product.image_link)) addIssue(issues, "error", "image_link", "The image_link value must be a valid http or https URL.");
+      if (!availability) addIssue(issues, "error", "availability", "Missing required Google Shopping attribute: availability.");
+      else if (!AVAILABILITY_VALUES.has(availability)) addIssue(issues, "error", "availability", "availability must use a supported value such as in_stock, out_of_stock, preorder, or backorder.");
+      if ((availability === "preorder" || availability === "backorder") && !cleanValue(product.availability_date)) addIssue(issues, "error", "availability_date", "availability_date is required when availability is preorder or backorder.");
+      if (!cleanValue(product.price)) addIssue(issues, "error", "price", "Missing required attribute: price.");
+      else if (!price) addIssue(issues, "error", "price", "Price must look like '123.45 EUR' or '1,234.56 EUR' and use an ISO 4217 currency code.");
+      if (price && price.amount <= 0) addIssue(issues, "error", "price", "Price must be greater than zero for a normal product.");
+      if (salePrice && !price) addIssue(issues, "warning", "sale_price", "Sale price exists, but the main price could not be validated.");
+      if (salePrice && price && salePrice.currency !== price.currency) addIssue(issues, "error", "sale_price", "sale_price must use the same currency as price.");
+      if (salePrice && price && salePrice.amount >= price.amount) addIssue(issues, "error", "sale_price", "sale_price should be lower than the regular price.");
+      if (cleanValue(product.sale_price) && !salePrice) addIssue(issues, "error", "sale_price", "sale_price must look like '123.45 EUR' or '1,234.56 EUR'.");
+      if (condition && !CONDITION_VALUES.has(condition)) addIssue(issues, "error", "condition", "condition must be new, used, or refurbished.");
 
       const gtin = cleanValue(product.gtin);
       const brand = cleanValue(product.brand);
       const mpn = cleanValue(product.mpn);
       const identifierExistsFalse = toBooleanFalse(product.identifier_exists);
-
       if (!gtin && !identifierExistsFalse) {
-        if (!brand) addIssue(issues, "warning", "brand", "brand puudub. Paljud tooted vajavad brändi ning identifikaatorite kvaliteet mõjutab nähtavust ja vasteid.");
-        if (!mpn) addIssue(issues, "warning", "mpn", "GTIN puudub ja MPN puudub samuti. Kui tootel tõesti GTIN-i ei ole, esita võimalusel brand + mpn või märgi selgelt, et identifikaatoreid ei eksisteeri.");
+        if (!brand) addIssue(issues, "warning", "brand", "brand is missing. Identifier quality affects matching and visibility.");
+        if (!mpn) addIssue(issues, "warning", "mpn", "No GTIN and no MPN were found. If the product truly has no GTIN, use brand + MPN where available or explicitly signal that identifiers do not exist.");
       }
 
-      if (!cleanValue(product.google_product_category)) addIssue(issues, "warning", "google_product_category", "google_product_category ei ole alati kohustuslik, kuid selle lisamine parandab tavaliselt klassifitseerimist ja diagnostikat.");
-      if (title && description && title.toLowerCase() === description.toLowerCase()) addIssue(issues, "warning", "description", "Pealkiri ja kirjeldus on identsed. Need peaksid täitma erinevat rolli.");
-      if (title && title.length > 150) addIssue(issues, "warning", "title", "Pealkiri on pikk ja võib tulemuses kärpesse minna või muutuda raskemini loetavaks.");
-      if (description && description.length < 40) addIssue(issues, "warning", "description", "Kirjeldus on väga lühike ja ei pruugi anda Google'ile piisavalt infot toote klassifitseerimiseks.");
-
-      if (SHIPPING_REQUIRED_COUNTRIES.has(context.targetCountry) && !cleanValue(product.shipping)) {
-        addIssue(issues, "warning", "shipping", "Selle sihtriigi puhul on shipping sageli vajalik, kuid see võib olla määratud nii konto tasemel kui ka feed'is. Selles reas see info puudub.");
-      }
-
-      if (!hasStructuredTitle && /ai|generated by/i.test(title)) addIssue(issues, "warning", "structured_title", "Kui see pealkiri on genereeritud tehisintellektiga, kasuta structured_title välja koos korrektse digital source type väärtusega.");
-      if (!hasStructuredDescription && /ai|generated by/i.test(description)) addIssue(issues, "warning", "structured_description", "Kui see kirjeldus on genereeritud tehisintellektiga, kasuta structured_description välja koos korrektse digital source type väärtusega.");
-
+      if (title && description && title.toLowerCase() === description.toLowerCase()) addIssue(issues, "warning", "description", "Title and description are identical. These should serve different purposes.");
+      if (title && title.length > 150) addIssue(issues, "warning", "title", "This title is long and may be truncated or become harder to review.");
+      if (description && description.length < 40) addIssue(issues, "warning", "description", "The description is very short and may not provide enough detail for classification.");
+      if (SHIPPING_REQUIRED_COUNTRIES.has(context.targetCountry) && !cleanValue(product.shipping)) addIssue(issues, "warning", "shipping", "Shipping may be required for this target country. It can be defined in the feed or at account level, but it is missing from this row.");
+      if (!hasStructuredTitle && /ai|generated by/i.test(title)) addIssue(issues, "warning", "structured_title", "If this title was generated with AI, structured_title should be used with the correct digital source type.");
+      if (!hasStructuredDescription && /ai|generated by/i.test(description)) addIssue(issues, "warning", "structured_description", "If this description was generated with AI, structured_description should be used with the correct digital source type.");
       return issues;
     }
 
     function summarizeSeverity(issues) {
-      return {
-        errors: issues.filter((issue) => issue.severity === "error").length,
-        warnings: issues.filter((issue) => issue.severity === "warning").length,
-      };
+      return { errors: issues.filter((issue) => issue.severity === "error").length, warnings: issues.filter((issue) => issue.severity === "warning").length };
     }
 
     function groupIssuesByProduct(products) {
-      return products.flatMap((product) => product.issues.map((issue) => ({
-        productId: cleanValue(product.id) || `Rida ${product.__row || "?"}`,
-        title: getTitle(product),
-        severity: issue.severity,
-        field: issue.field,
-        message: issue.message,
-      })));
+      return products.flatMap((product) => product.issues.map((issue) => ({ productId: cleanValue(product.id) || `Row ${product.__row || "?"}`, title: getTitle(product), severity: issue.severity, field: issue.field, message: issue.message })));
     }
 
-    function statusTone(errors, warnings) {
-      if (errors > 0) return "blocked";
-      if (warnings > 0) return "review";
-      return "ready";
-    }
-
-    function toneLabel(tone) {
-      if (tone === "ready") return "Sobib esialgu";
-      if (tone === "review") return "Kasutatav, aga vajab parandusi";
-      return "Vigade tõttu blokeeritud";
-    }
-
-    function severityBadge(severity) {
-      const label = severity === "error" ? "Viga" : "Hoiatus";
-      const cls = severity === "error" ? "error" : "warn";
-      return `<span class="status-pill ${cls}">${label}</span>`;
-    }
+    function statusTone(errors, warnings) { if (errors > 0) return "blocked"; if (warnings > 0) return "review"; return "ready"; }
+    function toneLabel(tone) { if (tone === "ready") return "Looks eligible"; if (tone === "review") return "Usable, but improve it"; return "Blocked by errors"; }
+    function severityBadge(severity) { return `<span class="status-pill ${severity === "error" ? "error" : "warn"}">${severity === "error" ? "Error" : "Warning"}</span>`; }
 
     function buildProducts(rows, targetCountry) {
       const idCounts = new Map();
-      rows.forEach((row) => {
-        const id = cleanValue(row.id);
-        if (!id) return;
-        idCounts.set(id, (idCounts.get(id) || 0) + 1);
-      });
+      rows.forEach((row) => { const id = cleanValue(row.id); if (id) idCounts.set(id, (idCounts.get(id) || 0) + 1); });
       return rows.map((row) => ({ ...row, issues: validateProduct(row, { idCounts, targetCountry }) }));
     }
 
     function updateCountryNotice() {
       const code = els.targetCountry.value;
       els.countryNotice.textContent = SHIPPING_REQUIRED_COUNTRIES.has(code)
-        ? "Selle sihtriigi puhul on shipping sageli kohustuslik. Tööriist hoiatab, kui see reas puudub, kuid arvesta, et shipping võib olla seadistatud ka konto tasemel."
-        : "Selle sihtriigi puhul keskendub tööriist feedi põhistruktuurile ja atribuutide kvaliteedile. Turu käivitumisel võivad lisanduda ka turupõhised reeglid.";
+        ? "For this target country, shipping is often required. The tool warns when it is missing from a row, but shipping can also be configured at account level."
+        : "For this target country, the tool focuses on core feed structure and attribute quality. Additional market-specific rules may still apply.";
     }
 
     function renderStats(products, format, allIssues) {
       const errors = allIssues.filter((issue) => issue.severity === "error").length;
       const warnings = allIssues.filter((issue) => issue.severity === "warning").length;
       const readyCount = products.filter((product) => summarizeSeverity(product.issues).errors === 0).length;
-
       els.statProducts.textContent = products.length;
-      els.statProductsMeta.textContent = `Allika vorming: ${format}`;
+      els.statProductsMeta.textContent = `Source format: ${format}`;
       els.statErrors.textContent = errors;
       els.statWarnings.textContent = warnings;
       els.statReady.textContent = readyCount;
@@ -1178,22 +650,15 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
 
     function renderProductList(products) {
       const visibleProducts = products.slice(0, MAX_VISIBLE_PRODUCTS);
-
       if (!products.length) {
-        els.productListNotice.textContent = "Ühtegi toodet ei loetud sisse.";
-        els.productList.innerHTML = '<div class="empty-box muted">Ühtegi rida ei loetud veel sisse. Laadi üles feed või kleebi sisu.</div>';
+        els.productListNotice.textContent = "No products were parsed.";
+        els.productList.innerHTML = '<div class="empty-box muted">No rows were parsed yet. Upload a feed or paste content.</div>';
         return;
       }
-
-      if (state.selectedIndex >= visibleProducts.length) {
-        state.selectedIndex = 0;
-      }
-
-      if (products.length > MAX_VISIBLE_PRODUCTS) {
-        els.productListNotice.textContent = `Feedis kokku ${products.length} toodet, kuvatakse esimesed ${MAX_VISIBLE_PRODUCTS}.`; 
-      } else {
-        els.productListNotice.textContent = `Feedis kokku ${products.length} toodet, kuvatakse kõik tooted.`;
-      }
+      if (state.selectedIndex >= visibleProducts.length) state.selectedIndex = 0;
+      els.productListNotice.textContent = products.length > MAX_VISIBLE_PRODUCTS
+        ? `The feed contains ${products.length} products. Showing the first ${MAX_VISIBLE_PRODUCTS}.`
+        : `The feed contains ${products.length} products. Showing all products.`;
 
       els.productList.innerHTML = visibleProducts.map((product, index) => {
         const summary = summarizeSeverity(product.issues);
@@ -1201,14 +666,13 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
         const toneClass = tone === "ready" ? "success" : tone === "review" ? "warn" : "error";
         return `
           <div class="product-list-item ${index === state.selectedIndex ? "active" : ""}" data-index="${index}">
-            <div style="font-size:14px; font-weight:700;">${escapeHtml(getTitle(product) || `Rida ${index + 1}`)}</div>
-            <div class="product-meta" style="font-size:12px; margin-top:4px;">${escapeHtml(cleanValue(product.id) || `Rida ${product.__row || index + 1}`)}</div>
+            <div style="font-size:14px; font-weight:700;">${escapeHtml(getTitle(product) || `Row ${index + 1}`)}</div>
+            <div class="product-meta" style="font-size:12px; margin-top:4px;">${escapeHtml(cleanValue(product.id) || `Row ${product.__row || index + 1}`)}</div>
             <div class="product-list" style="margin-top:10px; gap:8px;">
               <span class="status-pill ${index === state.selectedIndex ? "neutral" : toneClass}">${escapeHtml(toneLabel(tone))}</span>
-              <span class="status-pill neutral">${summary.errors} viga · ${summary.warnings} hoiatust</span>
+              <span class="status-pill neutral">${summary.errors} errors · ${summary.warnings} warnings</span>
             </div>
-          </div>
-        `;
+          </div>`;
       }).join("");
 
       Array.from(els.productList.querySelectorAll(".product-list-item")).forEach((item) => {
@@ -1221,131 +685,92 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
 
     function renderShoppingPreview(product) {
       if (!product) {
-        els.shoppingPreview.innerHTML = '<div class="empty-box muted">Feedi töötlemisel kuvatakse siia tasulise Shoppingu eelvaade.</div>';
+        els.shoppingPreview.innerHTML = '<div class="empty-box muted">The paid Shopping preview will appear here after parsing.</div>';
         return;
       }
-
       const availability = cleanValue(product.availability).toLowerCase();
-      const availabilityLabel = availability === "in_stock"
-        ? "Laos"
-        : availability === "out_of_stock"
-        ? "Läbi müüdud"
-        : availability === "preorder"
-        ? "Ettetellitav"
-        : availability === "backorder"
-        ? "Järeltellitav"
-        : "Saadavus ebaselge";
-
+      const availabilityLabel = availability === "in_stock" ? "In stock" : availability === "out_of_stock" ? "Out of stock" : availability === "preorder" ? "Preorder" : availability === "backorder" ? "Backorder" : "Availability unclear";
       const salePrice = cleanValue(product.sale_price);
       const price = cleanValue(product.price);
       const shipping = getShippingPrice(product);
       const rating = cleanValue(product.rating || product.review_rating);
       const reviewCount = cleanValue(product.review_count);
       const tone = availability === "in_stock" ? "success" : "warn";
-
       els.shoppingPreview.innerHTML = `
-        <div class="preview-label">Tasulise Shoppingu eelvaade</div>
+        <div class="preview-label">Paid Shopping-style preview</div>
         <div class="shopping-card">
           <img class="product-image" src="${escapeHtml(getImage(product))}" alt="${escapeHtml(getTitle(product))}" onerror="this.src='${PLACEHOLDER_IMAGE}'" />
           <div>
             <div class="site-domain">${escapeHtml(getDomain(product.link))}</div>
             <div class="product-title">${escapeHtml(getTitle(product))}</div>
             <div class="price-row">
-              ${salePrice ? `<span class="price-main">${escapeHtml(salePrice)}</span><span class="price-old">${escapeHtml(price)}</span><span class="tone-pill warn">Soodus</span>` : `<span class="price-main">${escapeHtml(price || "Hind puudub")}</span>`}
+              ${salePrice ? `<span class="price-main">${escapeHtml(salePrice)}</span><span class="price-old">${escapeHtml(price)}</span><span class="tone-pill warn">Sale</span>` : `<span class="price-main">${escapeHtml(price || "Price missing")}</span>`}
             </div>
             <div class="product-list" style="margin-top:12px;">
               <span class="tone-pill ${tone}">${escapeHtml(availabilityLabel)}</span>
               ${cleanValue(product.brand) ? `<span class="tone-pill neutral">${escapeHtml(product.brand)}</span>` : ""}
-              ${shipping ? `<span class="tone-pill neutral">Tarne ${escapeHtml(shipping)}</span>` : ""}
+              ${shipping ? `<span class="tone-pill neutral">Shipping ${escapeHtml(shipping)}</span>` : ""}
             </div>
             ${rating ? `<div class="meta-line">⭐ ${escapeHtml(rating)}${reviewCount ? ` (${escapeHtml(reviewCount)})` : ""}</div>` : ""}
-            <div class="snippet">${escapeHtml(getDescription(product) || "Tootekirjeldus puudub eelvaate jaoks.")}</div>
+            <div class="snippet">${escapeHtml(getDescription(product) || "No description available for preview.")}</div>
           </div>
-        </div>
-      `;
+        </div>`;
     }
 
     function renderOrganicPreview(product) {
       if (!product) {
-        els.organicPreview.innerHTML = '<div class="empty-box muted">Feedi töötlemisel kuvatakse siia orgaanilise tulemuse eelvaade.</div>';
+        els.organicPreview.innerHTML = '<div class="empty-box muted">The organic result preview will appear here after parsing.</div>';
         return;
       }
-
       const price = cleanValue(product.sale_price || product.price);
       const availability = cleanValue(product.availability).toLowerCase();
-
       els.organicPreview.innerHTML = `
-        <div class="preview-label">Orgaanilise tulemuse eelvaade</div>
+        <div class="preview-label">Organic merchant listing preview</div>
         <div class="site-domain">${escapeHtml(getDomain(product.link))}</div>
-        <div class="organic-title">${escapeHtml(getTitle(product) || "Pealkirjata toode")}</div>
+        <div class="organic-title">${escapeHtml(getTitle(product) || "Untitled product")}</div>
         <div class="organic-domain">${escapeHtml(getDomain(product.link))}</div>
         <div class="meta-line">
           ${price ? `<strong style="color:#0f172a;">${escapeHtml(price)}</strong>` : ""}
           ${availability ? ` · ${escapeHtml(availability.replace(/_/g, " "))}` : ""}
           ${cleanValue(product.brand) ? ` · ${escapeHtml(product.brand)}` : ""}
         </div>
-        <div class="snippet">${escapeHtml(getDescription(product) || "Kirjeldus puudub orgaanilise otsingu eelvaate jaoks.")}</div>
-      `;
+        <div class="snippet">${escapeHtml(getDescription(product) || "No description available for preview.")}</div>`;
     }
 
     function renderDiagnostics(product) {
       if (!product) {
-        els.diagnosticsCard.innerHTML = '<div class="empty-box muted">Feedi töötlemisel kuvatakse siia diagnostika.</div>';
+        els.diagnosticsCard.innerHTML = '<div class="empty-box muted">Diagnostics will appear here after parsing.</div>';
         return;
       }
-
       const summary = summarizeSeverity(product.issues);
       const tone = statusTone(summary.errors, summary.warnings);
       const bannerClass = tone === "ready" ? "ready" : tone === "review" ? "review" : "blocked";
-
       const issuesHtml = product.issues.length
-        ? product.issues.map((issue) => `
-            <div class="diagnostic-item">
-              <div class="diagnostic-top">
-                <strong>${escapeHtml(issue.field)}</strong>
-                ${severityBadge(issue.severity)}
-              </div>
-              <div class="snippet" style="margin-top:0;">${escapeHtml(issue.message)}</div>
-            </div>
-          `).join("")
-        : '<div class="info-box" style="color: var(--success-text); background: var(--success-bg); border-color: #a7f3d0;">Selle rea kohta ei leitud praeguste reeglite järgi ühtegi probleemi.</div>';
-
+        ? product.issues.map((issue) => `<div class="diagnostic-item"><div class="diagnostic-top"><strong>${escapeHtml(issue.field)}</strong>${severityBadge(issue.severity)}</div><div class="snippet" style="margin-top:0;">${escapeHtml(issue.message)}</div></div>`).join("")
+        : '<div class="info-box" style="color: var(--success-text); background: var(--success-bg); border-color: #a7f3d0;">No issues were found for this row with the current ruleset.</div>';
       els.diagnosticsCard.innerHTML = `
         <div class="panel-heading" style="margin-bottom:0;">
           <div>
-            <div class="eyebrow">Diagnostika</div>
+            <div class="eyebrow">Diagnostics</div>
             <h3>${escapeHtml(getTitle(product))}</h3>
-            <div class="muted" style="margin-top:6px; font-size:14px;">ID: ${escapeHtml(cleanValue(product.id) || `Rida ${product.__row || "?"}`)}</div>
+            <div class="muted" style="margin-top:6px; font-size:14px;">ID: ${escapeHtml(cleanValue(product.id) || `Row ${product.__row || "?"}`)}</div>
           </div>
           <div class="status-banner ${bannerClass}">${escapeHtml(toneLabel(tone))}</div>
         </div>
-        ${issuesHtml}
-      `;
+        ${issuesHtml}`;
     }
 
     function renderIssuesTable(allIssues) {
       const visibleIssues = allIssues.slice(0, MAX_VISIBLE_ISSUES);
-
       if (!allIssues.length) {
-        els.issuesNotice.textContent = "Probleeme ei leitud.";
-        els.issuesTableBody.innerHTML = '<tr><td colspan="4" class="muted">Diagnostika kirjeid veel ei ole.</td></tr>';
+        els.issuesNotice.textContent = "No issues found.";
+        els.issuesTableBody.innerHTML = '<tr><td colspan="4" class="muted">No diagnostics entries yet.</td></tr>';
         return;
       }
-
-      if (allIssues.length > MAX_VISIBLE_ISSUES) {
-        els.issuesNotice.textContent = `Feedis kokku ${allIssues.length} probleemi, tabelis kuvatakse esimesed ${MAX_VISIBLE_ISSUES}.`;
-      } else {
-        els.issuesNotice.textContent = `Feedis kokku ${allIssues.length} probleemi, tabelis kuvatakse kõik probleemid.`;
-      }
-
-      els.issuesTableBody.innerHTML = visibleIssues.map((issue) => `
-        <tr>
-          <td>${severityBadge(issue.severity)}</td>
-          <td>${escapeHtml(issue.field)}</td>
-          <td>${escapeHtml(issue.productId)}</td>
-          <td>${escapeHtml(issue.message)}</td>
-        </tr>
-      `).join("");
+      els.issuesNotice.textContent = allIssues.length > MAX_VISIBLE_ISSUES
+        ? `The feed contains ${allIssues.length} issues. The table shows the first ${MAX_VISIBLE_ISSUES}.`
+        : `The feed contains ${allIssues.length} issues. The table shows all issues.`;
+      els.issuesTableBody.innerHTML = visibleIssues.map((issue) => `<tr><td>${severityBadge(issue.severity)}</td><td>${escapeHtml(issue.field)}</td><td>${escapeHtml(issue.productId)}</td><td>${escapeHtml(issue.message)}</td></tr>`).join("");
     }
 
     function updateSourceMeta() {
@@ -1354,8 +779,9 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
     }
 
     function renderParseError() {
-      if (state.parseError) {
-        els.parseError.textContent = state.parseError;
+      const message = state.parseError || state.headerMessage;
+      if (message) {
+        els.parseError.textContent = message;
         els.parseError.classList.remove("hidden");
       } else {
         els.parseError.textContent = "";
@@ -1367,20 +793,14 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       updateCountryNotice();
       updateSourceMeta();
       renderParseError();
-
-      const products = state.products;
-      const allIssues = state.allIssues;
-
-      renderStats(products, state.parsed.format || "unknown", allIssues);
-      renderProductList(products);
-      renderIssuesTable(allIssues);
-
-      const selectedProduct = products[state.selectedIndex] || null;
+      renderStats(state.products, state.parsed.format || "unknown", state.allIssues);
+      renderProductList(state.products);
+      renderIssuesTable(state.allIssues);
+      const selectedProduct = state.products[state.selectedIndex] || null;
       renderShoppingPreview(selectedProduct);
       renderOrganicPreview(selectedProduct);
       renderDiagnostics(selectedProduct);
-
-      els.downloadCsvBtn.disabled = !allIssues.length;
+      els.downloadCsvBtn.disabled = !state.allIssues.length;
       els.downloadCsvBtn.style.opacity = els.downloadCsvBtn.disabled ? "0.5" : "1";
     }
 
@@ -1388,12 +808,14 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       try {
         state.parseError = "";
         state.parsed = parseFeed(state.rawFeed);
+        state.headerMessage = buildHeaderMessage(state.parsed.headers || []);
         state.products = buildProducts(state.parsed.rows, els.targetCountry.value);
         state.allIssues = groupIssuesByProduct(state.products);
         if (state.selectedIndex >= state.products.length) state.selectedIndex = 0;
       } catch (error) {
-        state.parseError = error && error.message ? error.message : "Feed'i ei saanud töödelda.";
-        state.parsed = { rows: [], format: "unknown" };
+        state.parseError = error && error.message ? error.message : "The feed could not be parsed.";
+        state.headerMessage = "";
+        state.parsed = { rows: [], format: "unknown", headers: [] };
         state.products = [];
         state.allIssues = [];
         state.selectedIndex = 0;
@@ -1402,18 +824,13 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
     }
 
     function downloadDiagnosticsCsv() {
-      const rows = [
-        ["severity", "field", "product_id", "title", "message"],
-        ...state.allIssues.map((issue) => [issue.severity, issue.field, issue.productId, issue.title, issue.message]),
-      ];
-      const csv = rows
-        .map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(","))
-        .join("\n");
+      const rows = [["severity", "field", "product_id", "title", "message"], ...state.allIssues.map((issue) => [issue.severity, issue.field, issue.productId, issue.title, issue.message])];
+      const csv = rows.map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(",")).join("\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "feed_diagnostika.csv";
+      link.download = "feed_diagnostics.csv";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -1421,25 +838,9 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
     }
 
     els.feedInput.value = SAMPLE_FEED;
-
-    els.feedInput.addEventListener("input", () => {
-      state.rawFeed = els.feedInput.value;
-      state.lastSource = "Kleebitud feed";
-      recalc();
-    });
-
-    els.targetCountry.addEventListener("change", () => {
-      recalc();
-    });
-
-    els.loadSampleBtn.addEventListener("click", () => {
-      state.rawFeed = SAMPLE_FEED;
-      state.lastSource = "Näidisfeed";
-      els.feedInput.value = SAMPLE_FEED;
-      state.selectedIndex = 0;
-      recalc();
-    });
-
+    els.feedInput.addEventListener("input", () => { state.rawFeed = els.feedInput.value; state.lastSource = "Pasted feed"; recalc(); });
+    els.targetCountry.addEventListener("change", recalc);
+    els.loadSampleBtn.addEventListener("click", () => { state.rawFeed = SAMPLE_FEED; state.lastSource = "Näidisfeed"; els.feedInput.value = SAMPLE_FEED; state.selectedIndex = 0; recalc(); });
     els.feedFile.addEventListener("change", async (event) => {
       const file = event.target.files && event.target.files[0];
       if (!file) return;
@@ -1450,9 +851,7 @@ SKU-1003\tSony WH-1000XM5 juhtmevabad kõrvaklapid\tPremium-klassi juhtmevabad p
       state.selectedIndex = 0;
       recalc();
     });
-
     els.downloadCsvBtn.addEventListener("click", downloadDiagnosticsCsv);
-
     recalc();
   </script>
 </body>
